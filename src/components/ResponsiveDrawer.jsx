@@ -2,24 +2,17 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
-import Divider from '@mui/material/Divider';
-import Drawer from '@mui/material/Drawer';
-import IconButton from '@mui/material/IconButton';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
+import {
+  Box, AppBar, CssBaseline, Divider, Drawer, IconButton, List, ListItem, ListItemButton,
+  ListItemText, ListItemIcon, Toolbar, Typography, SwipeableDrawer,
+} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import { SwipeableDrawer } from '@mui/material';
-import CarouselComp from './Carousel';
+import BedroomParentIcon from '@mui/icons-material/BedroomParent';
+import MeetingRoomIcon from '@mui/icons-material/MeetingRoom';
+import NoMeetingRoomIcon from '@mui/icons-material/NoMeetingRoom';
+import BookOnlineIcon from '@mui/icons-material/BookOnline';
+import ClassIcon from '@mui/icons-material/Class';
+import HouseIcon from '@mui/icons-material/House';
 
 const drawerWidth = 240;
 
@@ -31,10 +24,40 @@ function ResponsiveDrawer(props) {
     setMobileOpen(!mobileOpen);
   };
 
-  const menuItems = {
-    user: ['Rooms', 'Reserve', 'My Reservations'],
-    admin: ['Create Room', 'Delete Room'],
-  };
+  const menuItems = [
+    {
+      text: 'Home',
+      icon: <HouseIcon />,
+      onClick: '/',
+    },
+    {
+      text: 'Rooms',
+      icon: <BedroomParentIcon />,
+      onClick: '/rooms',
+    },
+    {
+      text: 'Reserve',
+      icon: <BookOnlineIcon />,
+      onClick: '/reserve',
+    },
+    {
+      text: 'My Reserves',
+      icon: <ClassIcon />,
+      onClick: '/my-reserves',
+    },
+  ];
+  const adminItems = [
+    {
+      text: 'Create Room',
+      icon: <MeetingRoomIcon />,
+      onClick: '/create-rooms',
+    },
+    {
+      text: 'Delete Room',
+      icon: <NoMeetingRoomIcon />,
+      onClick: '/delete-room',
+    },
+  ];
 
   const drawer = (
     <div>
@@ -46,20 +69,23 @@ function ResponsiveDrawer(props) {
             Options
           </Typography>
         </Box>
-        {menuItems.user.map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
+        {menuItems.map((item) => {
+          const { text, icon, onClick } = item;
+          return (
+            <ListItem key={text} disablePadding>
+              <ListItemButton href={onClick}>
+                <ListItemIcon>
+                  {icon}
+                </ListItemIcon>
+                <ListItemText primary={text} />
+              </ListItemButton>
+            </ListItem>
+          );
+        })}
       </List>
       <Divider />
       <List>
-        {menuItems.admin.length !== 0
+        {adminItems.length !== 0
           ? (
             <Box p={2} width="200px" textAlign="left" role="presentation">
               <Typography variant="h5" noWrap component="div">
@@ -68,16 +94,19 @@ function ResponsiveDrawer(props) {
             </Box>
           )
           : <div />}
-        {menuItems.admin.map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
+        {adminItems.map((item) => {
+          const { text, icon, onClick } = item;
+          return (
+            <ListItem key={text} disablePadding>
+              <ListItemButton href={onClick}>
+                <ListItemIcon>
+                  {icon}
+                </ListItemIcon>
+                <ListItemText primary={text} />
+              </ListItemButton>
+            </ListItem>
+          );
+        })}
       </List>
     </div>
   );
@@ -141,14 +170,6 @@ function ResponsiveDrawer(props) {
           {drawer}
         </Drawer>
       </Box>
-
-      <Box
-        component="main"
-        sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
-      >
-        <Toolbar />
-        <CarouselComp />
-      </Box>
     </Box>
   );
 }
@@ -158,7 +179,7 @@ ResponsiveDrawer.propTypes = {
    * Injected by the documentation to work in an iframe.
    * You won't need it on your project.
    */
-  window: PropTypes.func,
+  window: PropTypes.func.isRequired,
 };
 
 export default ResponsiveDrawer;
