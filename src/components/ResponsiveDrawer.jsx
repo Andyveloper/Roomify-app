@@ -1,7 +1,9 @@
+/* eslint-disable react/require-default-props */
+/* eslint-disable import/no-extraneous-dependencies */
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import {
-  AppBar, Box, CssBaseline, Divider, Drawer, IconButton, List, ListItem, ListItemButton,
+  Box, AppBar, CssBaseline, Divider, Drawer, IconButton, List, ListItem, ListItemButton,
   ListItemText, ListItemIcon, Toolbar, Typography, SwipeableDrawer,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
