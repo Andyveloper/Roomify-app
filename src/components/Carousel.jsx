@@ -30,14 +30,14 @@ const CarouselComp = () => {
               interval={4000}
               duration={500}
               // index={}
+              indicators={false}
               cycleNavigation
               swipe
               navButtonsAlwaysVisible
               fullHeightHover
               className="carousel"
               height={300}
-              // timeout={appear: 3, enter: 1, exit: 8}
-            >
+              >
               {pictures.map((ind) => (
                 <React.Fragment key={ind.id}>
                   <NavLink to={ind.type}>

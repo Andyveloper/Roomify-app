@@ -6,3 +6,16 @@
     border: 5px solid green;
     width: 100%;
 }
+
+/* .image-carousel {
+} */
+
+.carousel {
+    display: flex;
+    
+    /* width: 1500px; */
+}
+
+.image-carousel img {
+    width: 150px;
+}
