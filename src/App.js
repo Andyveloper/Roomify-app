@@ -4,6 +4,7 @@ import { Container } from '@mui/material';
 import ResponsiveDrawer from './components/ResponsiveDrawer';
 
 import Details from './pages/Details';
+import Home from './pages/Home';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Container>
           <BrowserRouter>
             <Routes>
+              <Route path="/" element={<Home />} />
               <Route exact path="/details" element={<Details />} />
             </Routes>
           </BrowserRouter>
