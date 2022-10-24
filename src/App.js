@@ -5,6 +5,8 @@ import ResponsiveDrawer from './components/ResponsiveDrawer';
 
 import Details from './pages/Details';
 import Home from './pages/Home';
+import Login from './pages/Login';
+import SignUp from './pages/SignUp';
 
 function App() {
   return (
@@ -19,7 +21,9 @@ function App() {
         <Container>
           <BrowserRouter>
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route exact path="/sign_up" element={<SignUp />} />
+              <Route exact path="/login" element={<Login />} />
+              <Route path="home" element={<Home />} />
               <Route exact path="/details" element={<Details />} />
             </Routes>
           </BrowserRouter>
