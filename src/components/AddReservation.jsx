@@ -60,8 +60,8 @@ const AddReservation = () => {
           />
 
         </div>
+        <input type="submit" />
       </form>
-      <input type="submit" />
     </div>
   );
 };
