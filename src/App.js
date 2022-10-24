@@ -4,7 +4,6 @@ import { Container } from '@mui/material';
 import ResponsiveDrawer from './components/ResponsiveDrawer';
 import Details from './pages/Details';
 import Home from './pages/Home';
-import Reservations from './pages/Reservations';
 import AddReservation from './components/AddReservation';
 
 function App() {
