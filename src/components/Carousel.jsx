@@ -45,7 +45,7 @@ const CarouselComp = () => {
             >
               {pictures.map((ind) => (
                 <React.Fragment key={ind.id}>
-                  <NavLink to="/reserve/new">
+                  <NavLink to="/reserve">
                     <div
                       onClick={() => onClick(ind)}
                       className="image-carousel"
