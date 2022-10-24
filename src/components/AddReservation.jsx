@@ -41,7 +41,7 @@ const AddReservation = () => {
           <select
             aria-label=".form-select-lg example"
             value={cityName}
-            className={`mb-3 form-select-lg form-select ${cityName.trim().length > 1 ? 'is-valid' : ''}`}
+            className={`mb-3 form-select-lg form-select ${cityName.trim() ? 'is-valid' : ''}`}
             onChange={(e) => setCityName(e.target.value)}
           >
             <option selected>Select a City</option>
