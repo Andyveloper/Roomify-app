@@ -18,16 +18,16 @@ function App() {
         }}
       >
         <ResponsiveDrawer />
-        <Container>
-          <BrowserRouter>
-            <Routes>
-              <Route exact path="/sign_up" element={<SignUp />} />
-              <Route exact path="/login" element={<Login />} />
-              <Route path="home" element={<Home />} />
-              <Route exact path="/details" element={<Details />} />
-            </Routes>
-          </BrowserRouter>
-        </Container>
+        {/* <Container> */}
+        <BrowserRouter>
+          <Routes>
+            <Route exact path="/sign_up" element={<SignUp />} />
+            <Route exact path="/login" element={<Login />} />
+            <Route path="home" element={<Home />} />
+            <Route exact path="/details" element={<Details />} />
+          </Routes>
+        </BrowserRouter>
+        {/* </Container> */}
       </Container>
     </>
   );
