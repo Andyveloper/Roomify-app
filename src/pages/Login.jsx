@@ -33,7 +33,7 @@ const theme = createTheme();
 
 export default function Login() {
   const [user, setUser] = useState({
-    form: {
+    user: {
       email: '',
       password: '',
     },
@@ -42,24 +42,31 @@ export default function Login() {
   });
   const handlerChange = async (e) => {
     await setUser({
-      form: {
-        ...user.form,
+      user: {
+        ...user.user,
         [e.target.name]: e.target.value,
       },
     });
-    console.log(user.form);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const url = 'http://localhost:3000/login';
-    fetch(url, {
+    const response = await fetch(url, {
       method: 'POST',
+      body: JSON.stringify({
+        user: {
+          email: user.user.email,
+          password: user.user.password,
+        },
+      }),
       headers: {
         'Content-Type': 'application/json',
       },
-    })
-      .then((response) => response.json());
+    });
+    const data = response.json();
+    console.log(response.headers.get('Authorization'));
+    return data;
   };
 
   return (
