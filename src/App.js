@@ -22,8 +22,8 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route exact path="/details" element={<Details />} />
-              <Route exact path="/reserve/new" element={<AddReservation />} />
-              <Route exact path="/reserve" element={<Reservations />} />
+              <Route exact path="/reserve" element={<AddReservation />} />
+              {/* <Route exact path="/reserve" element={<Reservations />} /> */}
             </Routes>
           </BrowserRouter>
         </Container>
