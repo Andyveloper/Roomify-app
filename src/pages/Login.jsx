@@ -52,7 +52,7 @@ export default function Login() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const url = 'https://solodata.es/auth';
+    const url = 'http://localhost:3000/login';
     fetch(url, {
       method: 'POST',
       headers: {
