@@ -36,7 +36,6 @@ export default function SignUp() {
         name: '',
         email: '',
         password: '',
-        role: '',
       },
     },
   );
@@ -48,19 +47,28 @@ export default function SignUp() {
         [e.target.name]: e.target.value,
       },
     });
-    console.log(user);
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    await fetch(apiUrl, {
+    const response = await fetch(apiUrl, {
       method: 'POST',
-      body: JSON.stringify(user),
+      body: JSON.stringify(
+        {
+          user: {
+            name: user.user.name,
+            email: user.user.email,
+            password: user.user.password,
+          },
+        },
+      ),
       headers: {
         'Content-Type': 'application/json',
       },
-    })
-      .then((response) => response.json);
+    });
+    const data = await response.json();
+    console.log(response.headers.get('Authorization'));
+    return data;
   };
 
   return (
