@@ -1,10 +1,13 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import Carousel from 'react-material-ui-carousel';
-import axios from 'axios';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
+import Axios from 'axios';
+import responsive from './CarouselStyling';
 import './carousel.css';
 import { addProperty } from '../redux/actionCreator';
 
@@ -16,7 +19,7 @@ const CarouselComp = () => {
   useEffect(() => {
     const apiKey = '30748294-b32c0b587bb743f77a631dffb';
     (async () => {
-      const { data } = await axios.get(`https://pixabay.com/api/?key=${apiKey}`);
+      const { data } = await Axios.get(`https://pixabay.com/api/?key=${apiKey}`);
       setPictures(data.hits);
     })();
   }, [pictures]);
@@ -31,33 +34,34 @@ const CarouselComp = () => {
         : (
           <>
             <Carousel
-              autoPlay
-              animation="slide"
-              interval={4000}
-              duration={500}
-              indicators={false}
-              cycleNavigation
-              swipe
-              navButtonsAlwaysVisible
-              fullHeightHover
-              className="carousel"
-              height={300}
+              responsive={responsive}
+              infinite
+              autoPlay="desktop"
+              autoPlaySpeed={4000}
+              keyBoardControl
+              transitionDuration={500}
+              containerClass="carousel-container"
+              itemClass
+              centerMode
+              slidesToSlide={3}
+              arrows
+              showDots
+              renderButtonGroupOutside={false}
             >
               {pictures.map((ind) => (
                 <React.Fragment key={ind.id}>
-                  <NavLink to="/reserve">
-                    <div
-                      onClick={() => onClick(ind)}
-                      className="image-carousel"
-                      style={{ width: '100%', height: '100%' }}
-                    >
+                  <div
+                    className="image-carousel"
+                    style={{ width: '100%', height: '100%' }}
+                  >
+                    <NavLink to="/reserve">
                       <img
-                        style={{ width: '100%', height: '100%', cursor: 'pointer' }}
+                        onClick={() => onClick(ind)}
                         src={ind.previewURL}
                         alt={ind.type}
                       />
-                    </div>
-                  </NavLink>
+                    </NavLink>
+                  </div>
                 </React.Fragment>
               ))}
             </Carousel>
