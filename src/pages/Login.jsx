@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -13,6 +13,9 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { Alert } from '@mui/material';
+
+import { LoginContext } from '../auth/UserAuth';
 
 function Copyright(props) {
   return (
@@ -48,7 +51,8 @@ export default function Login() {
       },
     });
   };
-
+  // eslint-disable-next-line
+  const { isAuth, setAuth } = useContext(LoginContext);
   const handleSubmit = async (event) => {
     event.preventDefault();
     const url = 'http://localhost:3000/login';
@@ -64,8 +68,21 @@ export default function Login() {
         'Content-Type': 'application/json',
       },
     });
-    const data = response.json();
+
+    const data = await response.json();
+
+    const userInfo = {
+      ...data.data,
+      token: response.headers.get('Authorization'),
+    };
+
     console.log(response.headers.get('Authorization'));
+    if (response.status === 200) {
+      setAuth(localStorage.setItem('isAuth', true));
+      localStorage.setItem('userInfo', JSON.stringify(userInfo));
+      window.location.href = '/details';
+    }
+
     return data;
   };
 
@@ -137,6 +154,9 @@ export default function Login() {
               >
                 Sign In
               </Button>
+              {!localStorage
+                ? <Alert severity="error">User or Password is incorrect</Alert>
+                : ' '}
               <Grid container>
 
                 <Grid item>
