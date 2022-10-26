@@ -1,19 +1,31 @@
 // const RESERVE_PROPERTY = 'property/housing/RESERVE_PROPERTY';
-const SELECTED_PROPERTY = 'property/housing/SELECTED_PROPERTY';
+const GET_ROOMS = 'property/housing/GET_ROOMS';
+const getRooms = async () => {
+  const bearerToken = JSON.parse(localStorage.getItem('userInfo')).token;
+  const response = await fetch('http://localhost:3000/rooms', {
+    method: 'GET',
+    headers: {
+      Authorization: `${bearerToken}`,
+    },
+  });
+  const data = await response.json();
+  return data;
+};
 
 // Action Creator
-const addProperty = (data) => (dispatch) => {
+const displayRooms = () => async (dispatch) => {
+  const { rooms } = await getRooms();
   dispatch({
-    type: SELECTED_PROPERTY,
-    payload: data,
+    type: GET_ROOMS,
+    payload: rooms,
   });
 };
 
-const propertyToAddReducer = (property = {}, action) => {
-  if (action.type === SELECTED_PROPERTY) {
+const roomsReducer = (property = {}, action) => {
+  if (action.type === GET_ROOMS) {
     return action.payload;
   }
   return property;
 };
 
-export { addProperty, propertyToAddReducer };
+export { displayRooms, roomsReducer };
