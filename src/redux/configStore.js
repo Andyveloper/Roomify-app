@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { propertyToAddReducer } from './actionCreator';
+import { roomsReducer } from './actionCreator';
 
 const store = configureStore({
   reducer: {
-    reserveProperty: propertyToAddReducer,
+    rooms: roomsReducer,
   },
 });
 
