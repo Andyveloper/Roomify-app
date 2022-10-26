@@ -52,9 +52,9 @@ function ResponsiveDrawer(props) {
       onClick: '/my-reserves',
     },
   ];
-  let adminItems = [];
+  const adminItems = [];
   const isAdmin = () => {
-    const userInfo = JSON.parse(localStorage.getItem('userInfo'))
+    const userInfo = JSON.parse(localStorage.getItem('userInfo'));
     if (userInfo.role === 'admin') {
       adminItems.push({
         text: 'Create Room',
@@ -65,10 +65,10 @@ function ResponsiveDrawer(props) {
         text: 'Delete Room',
         icon: <NoMeetingRoomIcon />,
         onClick: '/delete-room',
-      })
-    };
-    return adminItems
-  }
+      });
+    }
+    return adminItems;
+  };
   isAdmin();
   const drawer = (
     <div>
