@@ -52,19 +52,24 @@ function ResponsiveDrawer(props) {
       onClick: '/my-reserves',
     },
   ];
-  const adminItems = [
-    {
-      text: 'Create Room',
-      icon: <MeetingRoomIcon />,
-      onClick: '/create-rooms',
-    },
-    {
-      text: 'Delete Room',
-      icon: <NoMeetingRoomIcon />,
-      onClick: '/delete-room',
-    },
-  ];
-
+  let adminItems = [];
+  const isAdmin = () => {
+    const userInfo = JSON.parse(localStorage.getItem('userInfo'))
+    if (userInfo.role === 'admin') {
+      adminItems.push({
+        text: 'Create Room',
+        icon: <MeetingRoomIcon />,
+        onClick: '/create-rooms',
+      },
+      {
+        text: 'Delete Room',
+        icon: <NoMeetingRoomIcon />,
+        onClick: '/delete-room',
+      })
+    };
+    return adminItems
+  }
+  isAdmin();
   const drawer = (
     <div>
       <img style={useStyles} src={logo} alt="logo" />
