@@ -18,7 +18,7 @@ function Logout() {
     });
     if (response.status === 200) {
       setAuth(localStorage.setItem('isAuth', false));
-      window.location.href = '/login';
+      window.location.href = '/';
     }
     return response;
   };

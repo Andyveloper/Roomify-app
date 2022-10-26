@@ -10,10 +10,10 @@ import SignUp from './pages/SignUp';
 
 function App() {
   const isLogged = () => {
-    if (localStorage.getItem('isAuth') === 'false') {
+    if (localStorage.getItem('isAuth') === 'false' || !localStorage.getItem('isAuth')) {
       return (
         <Routes>
-          <Route exact path="/login" element={<Login />} />
+          <Route exact path="/" element={<Login />} />
           <Route exact path="/sign_up" element={<SignUp />} />
         </Routes>
       );
