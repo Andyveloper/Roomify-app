@@ -1,0 +1,16 @@
+.carousel-button-group {
+    position: absolute;
+}
+
+.carousel-container {
+    border: 5px solid green;
+    width: 100%;
+}
+
+.carousel {
+    display: flex;
+}
+
+.image-carousel img {
+    width: 150px;
+}
