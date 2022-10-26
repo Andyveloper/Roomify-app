@@ -1,36 +1,25 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import Axios from 'axios';
 import responsive from './CarouselStyling';
 import './carousel.css';
-import { addProperty } from '../redux/actionCreator';
+import { displayRooms } from '../redux/actionCreator';
 
 const CarouselComp = () => {
-  const [pictures, setPictures] = useState([]);
-
   const dispatch = useDispatch();
-
+  const rooms = useSelector((state) => state.rooms);
   useEffect(() => {
-    const apiKey = '30748294-b32c0b587bb743f77a631dffb';
-    (async () => {
-      const { data } = await Axios.get(`https://pixabay.com/api/?key=${apiKey}`);
-      setPictures(data.hits);
-    })();
-  }, [pictures]);
-
-  const onClick = (data) => {
-    dispatch(addProperty(data));
-  };
-
+    dispatch(displayRooms());
+  }, [dispatch]);
+  console.log(rooms);
   return (
     <>
-      {!pictures.length ? (<div>Loading...</div>)
+      {!rooms.length ? (<div>Loading...</div>)
         : (
           <>
             <Carousel
@@ -48,7 +37,7 @@ const CarouselComp = () => {
               showDots
               renderButtonGroupOutside={false}
             >
-              {pictures.map((ind) => (
+              {rooms.map((ind) => (
                 <React.Fragment key={ind.id}>
                   <div
                     className="image-carousel"
@@ -56,9 +45,8 @@ const CarouselComp = () => {
                   >
                     <NavLink to="/reserve">
                       <img
-                        onClick={() => onClick(ind)}
-                        src={ind.previewURL}
-                        alt={ind.type}
+                        src={ind.photo}
+                        alt="rooms"
                       />
                     </NavLink>
                   </div>
