@@ -1,16 +1,20 @@
-.carousel-button-group {
+/* .carousel-button-group {
   position: absolute;
-}
+} */
 
 .carousel-container {
-  border: 5px solid green;
-  width: 100%;
-}
-
-.carousel {
-  display: flex;
+  border: 5px solid transparent;
+  
 }
 
 .image-carousel img {
-  width: 150px;
+  min-width: 50px;
+  max-width: 150px;
+}
+
+@media only screen and (max-width: 600px) {
+
+  .image-carousel img {
+    width: 70px;
+  } 
 }

@@ -41,23 +41,24 @@ const CarouselComp = () => {
               keyBoardControl
               transitionDuration={500}
               containerClass="carousel-container"
-              itemClass
+              // itemClass
               centerMode
-              slidesToSlide={3}
+              slidesToSlide={1}
               arrows
               showDots
-              renderButtonGroupOutside={false}
+              // renderButtonGroupOutside={false}
             >
               {pictures.map((ind) => (
                 <React.Fragment key={ind.id}>
                   <div
                     className="image-carousel"
-                    style={{ width: '100%', height: '100%' }}
+                    // style={{ width: '100%', height: '100%' }}
                   >
                     <NavLink to="/reserve">
                       <img
                         onClick={() => onClick(ind)}
-                        src={ind.previewURL}
+                        src="https://placeimg.com/640/640/any"
+                        // {ind.previewURL}
                         alt={ind.type}
                       />
                     </NavLink>
