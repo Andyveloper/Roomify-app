@@ -70,7 +70,6 @@ export default function SignUp() {
       },
     });
     const data = await response.json();
-    console.log(response.headers.get('Authorization'));
 
     const userInfo = {
       ...data.data,
@@ -80,7 +79,7 @@ export default function SignUp() {
     if (data.status.code === 200) {
       localStorage.setItem('userInfo', JSON.stringify(userInfo));
       setAuth(localStorage.setItem('isAuth', true));
-      // window.location.href = '/details';
+      window.location.href = '/details';
     }
   };
 
