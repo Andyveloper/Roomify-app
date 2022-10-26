@@ -14,12 +14,18 @@ import BookOnlineIcon from '@mui/icons-material/BookOnline';
 import ClassIcon from '@mui/icons-material/Class';
 import HouseIcon from '@mui/icons-material/House';
 
+import logo from '../assets/img/logo.png';
+
+import Logout from './Logout';
+
 const drawerWidth = 240;
+const useStyles = {
+  maxWidth: drawerWidth,
+};
 
 function ResponsiveDrawer(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
-
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -61,7 +67,7 @@ function ResponsiveDrawer(props) {
 
   const drawer = (
     <div>
-      <Toolbar />
+      <img style={useStyles} src={logo} alt="logo" />
       <Divider />
       <List>
         <Box p={2} width="200px" textAlign="left" role="presentation">
@@ -136,6 +142,7 @@ function ResponsiveDrawer(props) {
           <Typography variant="h6" noWrap component="div">
             Rent a Room
           </Typography>
+          <Logout />
         </Toolbar>
       </AppBar>
       <Box
