@@ -12,7 +12,7 @@ import MeetingRoomIcon from '@mui/icons-material/MeetingRoom';
 import NoMeetingRoomIcon from '@mui/icons-material/NoMeetingRoom';
 import BookOnlineIcon from '@mui/icons-material/BookOnline';
 import ClassIcon from '@mui/icons-material/Class';
-import HouseIcon from '@mui/icons-material/House';
+import { Link } from 'react-router-dom';
 
 import logo from '../assets/img/logo.png';
 
@@ -79,12 +79,14 @@ function ResponsiveDrawer(props) {
           const { text, icon, onClick } = item;
           return (
             <ListItem key={text} disablePadding>
-              <ListItemButton href={onClick}>
-                <ListItemIcon>
-                  {icon}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
+              <Link to={onClick}>
+                <ListItemButton>
+                  <ListItemIcon>
+                    {icon}
+                  </ListItemIcon>
+                  <ListItemText primary={text} />
+                </ListItemButton>
+              </Link>
             </ListItem>
           );
         })}

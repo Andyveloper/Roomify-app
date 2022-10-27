@@ -4,7 +4,7 @@ import { roomsReducer, reservationsReducer } from './actionCreator';
 const store = configureStore({
   reducer: {
     rooms: roomsReducer,
-    reservations: reservationsReducer
+    reservations: reservationsReducer,
   },
 });
 

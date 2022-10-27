@@ -2,17 +2,14 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 
-
 import React, { useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { displayRooms } from '../redux/actionCreator';
 import './carousel.css';
 import 'react-multi-carousel/lib/styles.css';
-import responsive from './CarouselStyling';
+import { NavLink } from 'react-router-dom';
 import Carousel from 'react-multi-carousel';
-
-
+import { useDispatch, useSelector } from 'react-redux';
+import { displayRooms } from '../redux/actionCreator';
+import responsive from './CarouselStyling';
 
 const CarouselComp = () => {
   const dispatch = useDispatch();
