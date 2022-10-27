@@ -58,7 +58,7 @@ const CarouselComp = () => {
                     </NavLink>
 
                     <h4 className="card-h4">{ind.name}</h4>
-                    <p className="card-para">{ind.description}</p>
+                    <p className="card-para">{ind.description.length > 100 ? `${ind.description.slice(0, 200)}...` : ind.description }</p>
                   </div>
                 </React.Fragment>
               ))}
