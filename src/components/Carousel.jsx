@@ -16,7 +16,6 @@ const CarouselComp = () => {
   useEffect(() => {
     dispatch(displayRooms());
   }, [dispatch]);
-  // console.log(rooms);
   return (
     <>
       {!rooms.length ? (<div className="center">Loading...</div>)
@@ -43,7 +42,6 @@ const CarouselComp = () => {
                 <React.Fragment key={ind.id}>
                   <div
                     className="image-carousel"
-                    // style={{ width: '100%', height: '100%' }}
                   >
                     <NavLink to="/reserve">
                       <img
