@@ -14,11 +14,5 @@ const responsive = {
   },
 };
 
-// const getAverageRGB = (img) => {
-//   const colorThief = new ColorThief();
-//   const result = colorThief.getColor(img);
-//   console.log(result);
-// };
-
 // export { getAverageRGB };
 export default responsive;
