@@ -53,6 +53,9 @@ const CarouselComp = () => {
                         alt="rooms"
                       />
                     </NavLink>
+
+                    <h4>{ind.name}</h4>
+                    {console.log(ind.name)}
                   </div>
                 </React.Fragment>
               ))}
