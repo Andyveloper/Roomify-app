@@ -19,7 +19,7 @@ const CarouselComp = () => {
   // console.log(rooms);
   return (
     <>
-      {!rooms.length ? (<div>Loading...</div>)
+      {!rooms.length ? (<div className="center">Loading...</div>)
         : (
           <section className="main-section">
             <div className="header-desc">
@@ -38,11 +38,9 @@ const CarouselComp = () => {
               slidesToSlide={1}
               arrows
               showDots
-              // renderButtonGroupOutside={false}
             >
               {rooms.map((ind) => (
                 <React.Fragment key={ind.id}>
-                  {/* {console.log(ind.photo)} */}
                   <div
                     className="image-carousel"
                     // style={{ width: '100%', height: '100%' }}
@@ -54,8 +52,7 @@ const CarouselComp = () => {
                       />
                     </NavLink>
 
-                    <h4>{ind.name}</h4>
-                    {console.log(ind.name)}
+                    <h4 className="card-h4">{ind.name}</h4>
                   </div>
                 </React.Fragment>
               ))}
