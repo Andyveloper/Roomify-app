@@ -1,14 +1,18 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
+
+
 import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import Carousel from 'react-multi-carousel';
+import { displayRooms } from '../redux/actionCreator';
+import './carousel.css';
 import 'react-multi-carousel/lib/styles.css';
 import responsive from './CarouselStyling';
-import './carousel.css';
-import { displayRooms } from '../redux/actionCreator';
+import Carousel from 'react-multi-carousel';
+
+
 
 const CarouselComp = () => {
   const dispatch = useDispatch();
@@ -16,7 +20,6 @@ const CarouselComp = () => {
   useEffect(() => {
     dispatch(displayRooms());
   }, [dispatch]);
-  console.log(rooms);
   return (
     <>
       {!rooms.length ? (<div>Loading...</div>)

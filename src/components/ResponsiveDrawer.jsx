@@ -32,14 +32,9 @@ function ResponsiveDrawer(props) {
 
   const menuItems = [
     {
-      text: 'Home',
-      icon: <HouseIcon />,
-      onClick: '/',
-    },
-    {
       text: 'Rooms',
       icon: <BedroomParentIcon />,
-      onClick: '/rooms',
+      onClick: '/',
     },
     {
       text: 'Reserve',
@@ -47,9 +42,9 @@ function ResponsiveDrawer(props) {
       onClick: '/reserve',
     },
     {
-      text: 'My Reserves',
+      text: 'My Reservations',
       icon: <ClassIcon />,
-      onClick: '/my-reserves',
+      onClick: '/my-reservations',
     },
   ];
   const adminItems = [];
@@ -59,7 +54,7 @@ function ResponsiveDrawer(props) {
       adminItems.push({
         text: 'Create Room',
         icon: <MeetingRoomIcon />,
-        onClick: '/create-rooms',
+        onClick: '/create-room',
       },
       {
         text: 'Delete Room',
