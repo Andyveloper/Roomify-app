@@ -1,3 +1,7 @@
+.center {
+  text-align: center;
+}
+
 .MuiContainer-root {
   flex-direction: column;
   gap: 2px;
@@ -13,6 +17,10 @@
 
 .react-multi-carousel-list {
   margin-top: 50px;
+}
+
+.card-h4 {
+  text-align: center;
 }
 
 .carousel-container {
