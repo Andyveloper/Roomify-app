@@ -17,7 +17,6 @@
 
 .react-multi-carousel-list {
   margin-top: 50px;
-  /* display: block; */
 }
 
 .react-multi-carousel-item {
@@ -91,12 +90,3 @@
     width: 200px;
   }
 }
-/* @media only screen and (max-width: 1160px) {
-  .image-carousel img {
-    width: 150px;
-  }
-
-  .card-para {
-    width: 150px;
-  }
-} */
