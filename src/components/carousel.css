@@ -1,20 +1,37 @@
-/* .carousel-button-group {
-  position: absolute;
-} */
+.MuiContainer-root {
+  flex-direction: column;
+  gap: 2px;
+}
+
+.header-desc {
+  text-align: center;
+}
+
+.header-desc small {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.react-multi-carousel-list {
+  margin-top: 50px;
+}
 
 .carousel-container {
-  border: 5px solid transparent;
-  
+    border: 5px solid transparent;
 }
 
 .image-carousel img {
   min-width: 50px;
   max-width: 150px;
+  border-radius: 50%;
 }
 
 @media only screen and (max-width: 600px) {
-
   .image-carousel img {
-    width: 70px;
+    width: 120px;
   } 
+}
+@media only screen and (min-width: 600px) {
+  .main-section {
+    margin-left: 15rem;
+  }
 }
