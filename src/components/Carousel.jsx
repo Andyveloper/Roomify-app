@@ -16,12 +16,16 @@ const CarouselComp = () => {
   useEffect(() => {
     dispatch(displayRooms());
   }, [dispatch]);
-  console.log(rooms);
+  // console.log(rooms);
   return (
     <>
       {!rooms.length ? (<div>Loading...</div>)
         : (
-          <>
+          <section className="main-section">
+            <div className="header-desc">
+              <h1>Latest Designed Rooms</h1>
+              <small>Please select your choice</small>
+            </div>
             <Carousel
               responsive={responsive}
               infinite
@@ -30,7 +34,6 @@ const CarouselComp = () => {
               keyBoardControl
               transitionDuration={500}
               containerClass="carousel-container"
-              // itemClass
               centerMode
               slidesToSlide={1}
               arrows
@@ -39,6 +42,7 @@ const CarouselComp = () => {
             >
               {rooms.map((ind) => (
                 <React.Fragment key={ind.id}>
+                  {/* {console.log(ind.photo)} */}
                   <div
                     className="image-carousel"
                     // style={{ width: '100%', height: '100%' }}
@@ -53,7 +57,7 @@ const CarouselComp = () => {
                 </React.Fragment>
               ))}
             </Carousel>
-          </>
+          </section>
         )}
     </>
   );
