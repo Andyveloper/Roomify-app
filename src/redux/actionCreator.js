@@ -14,8 +14,8 @@ const getRooms = async () => {
   return data;
 };
 const getReservations = async () => {
-  const {rooms} = await getRooms();
-  let firstId = rooms[0].id;
+  const { rooms } = await getRooms();
+  const firstId = rooms[0].id;
   const bearerToken = JSON.parse(localStorage.getItem('userInfo')).token;
   const response = await fetch(`http://localhost:3000/rooms/${firstId}/reservations`, {
     method: 'GET',
@@ -58,4 +58,6 @@ const reservationsReducer = (property = {}, action) => {
   return property;
 };
 
-export { displayRooms, roomsReducer, displayReservations, reservationsReducer };
+export {
+  displayRooms, roomsReducer, displayReservations, reservationsReducer,
+};
