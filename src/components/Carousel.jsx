@@ -6,8 +6,10 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import { CircularProgress } from '@mui/material';
 import responsive from './CarouselStyling';
 import './carousel.css';
+
 import { displayRooms } from '../redux/actionCreator';
 
 const CarouselComp = () => {
@@ -18,7 +20,11 @@ const CarouselComp = () => {
   }, [dispatch]);
   return (
     <>
-      {!rooms.length ? (<div className="center">Loading...</div>)
+      {!rooms.length ? (
+        <div className="center">
+          <CircularProgress color="secondary" />
+        </div>
+      )
         : (
           <section className="main-section">
             <div className="header-desc">
