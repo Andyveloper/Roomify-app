@@ -26,11 +26,12 @@ function App() {
       <BrowserRouter>
         {isLogged()}
         <Container
+          maxWidth={false}
           sx={{
             display: 'flex',
             position: 'relative',
             mt: { xs: '56px', sm: '64px' },
-            padding: '0'
+            padding: '0',
           }}
           disableGutters
         >
