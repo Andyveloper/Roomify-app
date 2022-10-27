@@ -59,21 +59,44 @@
 
 @media only screen and (max-width: 600px) {
   .image-carousel img {
-    width: 200px;
+    width: 150px;
   } 
+  .card-para {
+    padding-bottom: 10px;
+    font-size: 12px;
+    width: 40vw;
+  }
+
 }
 @media only screen and (min-width: 600px) {
   .main-section {
     margin-left: 15rem;
   }
 
+  .image-carousel img {
+    width: 6rem;
+  } 
 
-  /* .image-carousel {
-    min-width: 50px;
+  .image-carousel {
     max-width: 100px;
-    height: 40vh;
-  } */
-  /* .image-carousel img {
-    width: 50em;
-  }  */
+    height: 50vh;
+  }
 }
+@media only screen and (min-width: 900px) {
+  .image-carousel img {
+    width: 200px;
+  }
+
+  .card-para {
+    width: 200px;
+  }
+}
+/* @media only screen and (max-width: 1160px) {
+  .image-carousel img {
+    width: 150px;
+  }
+
+  .card-para {
+    width: 150px;
+  }
+} */
