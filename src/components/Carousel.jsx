@@ -47,12 +47,14 @@ const CarouselComp = () => {
                   >
                     <NavLink to="/reserve">
                       <img
+                        className="ind-image"
                         src={ind.photo}
                         alt="rooms"
                       />
                     </NavLink>
 
                     <h4 className="card-h4">{ind.name}</h4>
+                    <p className="card-para">{ind.description}</p>
                   </div>
                 </React.Fragment>
               ))}
