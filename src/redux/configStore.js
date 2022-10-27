@@ -1,9 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { roomsReducer } from './actionCreator';
+import { roomsReducer, reservationsReducer } from './actionCreator';
 
 const store = configureStore({
   reducer: {
     rooms: roomsReducer,
+    reservations: reservationsReducer
   },
 });
 
