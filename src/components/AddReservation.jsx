@@ -1,47 +1,15 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import axios from 'axios';
+
 
 const AddReservation = () => {
-  const data = useSelector((state) => state.reserveProperty);
-  const url = '';
-  const [property, setProperty] = useState({});
-
-  const [userReserve, setUserReserve] = useState({
-    property: data,
-    cityName: '',
-    date: '',
-  });
-
-  const todayDate = new Date().toISOString().slice(0, 10);
-
-  const handleUserReserve = (e) => {
-    const newData = { ...userReserve };
-    newData[e.target.id] = e.target.value;
-    setUserReserve(newData);
-  };
-
-  useEffect(() => {
-    setProperty(data);
-  }, [property]);
-
-  const submit = (e) => {
-    e.preventDefault();
-    axios.post(url, {
-      property: userReserve.property,
-      cityName: userReserve.cityName,
-      date: userReserve.date,
-    })
-      .then((res) => {
-        console.log(res.data);
-      });
-  };
-
+  const data = useSelector((state) => state.rooms);
+  
   return (
-    <div>
+    <div className='reservation'>
       <h1>Add a new reservation</h1>
-      <div
+      {/* <div
         className="image-body"
         style={{ width: '200px', height: '200px' }}
         id=""
@@ -90,8 +58,8 @@ const AddReservation = () => {
 
         </div>
         <input type="submit" />
-      </form>
-    </div>
+      </form> */}
+    </div> 
   );
 };
 
