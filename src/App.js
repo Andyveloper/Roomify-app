@@ -27,10 +27,14 @@ function App() {
       <BrowserRouter>
         {isLogged()}
         <Container
+          maxWidth={false}
           sx={{
             display: 'flex',
-            mt: { xs: '5rem' },
+            position: 'relative',
+            mt: { xs: '56px', sm: '64px' },
+            padding: '0',
           }}
+          disableGutters
         >
 
           {localStorage.getItem('isAuth') === 'true'
