@@ -1,16 +1,16 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-
 import React, { useEffect } from 'react';
-import './carousel.css';
-import 'react-multi-carousel/lib/styles.css';
 import { NavLink } from 'react-router-dom';
-import Carousel from 'react-multi-carousel';
 import { useDispatch, useSelector } from 'react-redux';
-import { displayRooms } from '../redux/actionCreator';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
+import { CircularProgress } from '@mui/material';
 import responsive from './CarouselStyling';
+import './carousel.css';
 
+import { displayRooms } from '../redux/actionCreator';
 const CarouselComp = () => {
   const dispatch = useDispatch();
   const rooms = useSelector((state) => state.rooms);
@@ -19,9 +19,17 @@ const CarouselComp = () => {
   }, [dispatch]);
   return (
     <>
-      {!rooms.length ? (<div>Loading...</div>)
+      {!rooms.length ? (
+        <div className="center">
+          <CircularProgress color="secondary" />
+        </div>
+      )
         : (
-          <>
+          <section className="main-section">
+            <div className="header-desc">
+              <h1>Latest Designed Rooms</h1>
+              <small>Please select your choice</small>
+            </div>
             <Carousel
               responsive={responsive}
               infinite
@@ -30,30 +38,31 @@ const CarouselComp = () => {
               keyBoardControl
               transitionDuration={500}
               containerClass="carousel-container"
-              itemClass
               centerMode
-              slidesToSlide={3}
+              slidesToSlide={1}
               arrows
               showDots
-              renderButtonGroupOutside={false}
             >
               {rooms.map((ind) => (
                 <React.Fragment key={ind.id}>
                   <div
                     className="image-carousel"
-                    style={{ width: '100%', height: '100%' }}
                   >
-                    <NavLink to="/reserve">
+                    <NavLink to="/details">
                       <img
+                        className="ind-image"
                         src={ind.photo}
                         alt="rooms"
                       />
                     </NavLink>
+
+                    <h4 className="card-h4">{ind.name}</h4>
+                    <p className="card-para">{ind.description.length > 100 ? `${ind.description.slice(0, 200)}...` : ind.description }</p>
                   </div>
                 </React.Fragment>
               ))}
             </Carousel>
-          </>
+          </section>
         )}
     </>
   );
