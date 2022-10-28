@@ -19,11 +19,11 @@ const addRooms = async (room) => {
   const response = await fetch('http://localhost:3000/rooms', {
     method: 'POST',
     headers: {
-      'Accept': 'application/json',
+      Accept: 'application/json',
       'Content-Type': 'application/json',
       Authorization: `${bearerToken}`,
     },
-    body: JSON.stringify(room)
+    body: JSON.stringify(room),
   });
   const data = await response.json();
   return data;
@@ -38,26 +38,25 @@ const displayRooms = () => async (dispatch) => {
   });
 };
 
-const addRoom = (newRoom) => async (dispatch) =>{
+const addRoom = (newRoom) => async (dispatch) => {
   await addRooms(newRoom);
   dispatch({
     type: ADD_ROOM,
     payload: newRoom,
-  })
-}
+  });
+};
 
 const roomsReducer = (property = [], action) => {
   if (action.type === GET_ROOMS) {
     return action.payload;
   }
-  if (action.type === ADD_ROOM){
+  if (action.type === ADD_ROOM) {
     return [
       ...property,
       action.payload,
-    ]
+    ];
   }
   return property;
 };
-
 
 export { displayRooms, roomsReducer, addRoom };
