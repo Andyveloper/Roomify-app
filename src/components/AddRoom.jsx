@@ -1,6 +1,9 @@
-import React, {useEffect, useState} from 'react'
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { addRoom } from '../redux/actionCreator';
 
 const AddRoom = () => {
+const dispatchRoom = useDispatch();
 const [roomArray, setRoomArray] = useState({
   name: '',
   description: '',
@@ -25,6 +28,14 @@ const handleSubmit = (e) => {
     description: roomArray.description,
     photo: roomArray.photo
   }
+  dispatchRoom(addRoom(newRoom));
+  setRoomArray(
+    {
+      name: '',
+      description: '',
+      photo: ''
+    }
+  )
 }
 
   return (
