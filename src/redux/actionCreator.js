@@ -46,13 +46,13 @@ const addRoom = (newRoom) => async (dispatch) =>{
   })
 }
 
-const roomsReducer = (property = {}, action) => {
+const roomsReducer = (property = [], action) => {
   if (action.type === GET_ROOMS) {
     return action.payload;
   }
   if (action.type === ADD_ROOM){
     return [
-      ...state,
+      ...property,
       action.payload,
     ]
   }
