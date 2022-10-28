@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { addRoom } from '../redux/actionCreator';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import Grid from '@mui/material/Grid';
+import './add_room.css';
 
 const AddRoom = () => {
 const dispatchRoom = useDispatch();
@@ -28,6 +32,7 @@ const handleSubmit = (e) => {
     description: roomArray.description,
     photo: roomArray.photo
   }
+
   dispatchRoom(addRoom(newRoom));
   setRoomArray(
     {
@@ -39,31 +44,80 @@ const handleSubmit = (e) => {
 }
 
   return (
-      <div>
-        <div>AddRoom</div>
-        <form>
-          <input 
-          type="text"
+    <div class="container">
+      <div>Add Room</div>
+        <Grid
+        container
+        direction= "column"
+        justify="center"
+        alignItems="center"
+        >
+        
+        <form className='form__container'>
+        <Grid
+        container
+        justify="center"
+        spacing={2}
+        xs={12}
+        >
+          <Grid
+            item
+            xs={12}
+            md={12}
+            lg={12}>
+          <TextField
+          id="standard-basic"
+          label="Room Name"
+          variant="standard"
           name="name"
           value={roomArray.name}
-          onChange={(e)=>handleInputChange(e)} />
-          <textarea 
+          onChange={(e)=>handleInputChange(e)}
+          fullWidth
+          required />
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            md={12}
+            lg={12}> 
+          <TextField
+          id="standard-multiline-flexible"
+          label="Room Description"
+          multiline
+          rows={4} 
           name="description" 
-          id=""
           value={roomArray.description}
-          onChange={(e)=>handleInputChange(e)} 
-          cols="30" 
-          rows="10">
-          </textarea>
-          <input 
-          type="text"
+          onChange={(e)=>handleInputChange(e)}
+          variant="standard"
+          fullWidth
+          required/>
+         </Grid>
+          <Grid
+            item
+            xs={12}
+            sm={12}
+            md={12}
+            lg={12}> 
+          <TextField
+          id="standard-basic"
+          label="Room URL"
+          variant="standard"
           name="photo"
           value={roomArray.photo}
-          onChange={(e)=>handleInputChange(e)} />
-          <button
+          onChange={(e)=>handleInputChange(e)}
+          required
+          fullWidth />
+          </Grid>
+          <Grid
+            item > 
+          <Button
           type="button"
-          onClick={handleSubmit}>Add Room</button>
+          variant="outlined"
+          onClick={handleSubmit}>Add Room</Button>
+         </Grid>
+         </Grid>
         </form>
+        </Grid>
       </div>
   )
 }
