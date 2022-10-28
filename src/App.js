@@ -11,7 +11,6 @@ import CreateRoom from './pages/CreateRoom';
 import PrivateRoute from './components/PrivateRoute';
 import MyReservations from './components/MyReservations';
 
-
 function App() {
   const isLogged = () => {
     if (localStorage.getItem('isAuth') === 'false' || !localStorage.getItem('isAuth')) {
