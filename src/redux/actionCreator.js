@@ -38,6 +38,14 @@ const displayRooms = () => async (dispatch) => {
   });
 };
 
+const addRoom = (newRoom) => async (dispatch) =>{
+  await addRooms(newRoom);
+  dispatch({
+    type: ADD_ROOM,
+    payload: newRoom,
+  })
+}
+
 const roomsReducer = (property = {}, action) => {
   if (action.type === GET_ROOMS) {
     return action.payload;
@@ -45,4 +53,4 @@ const roomsReducer = (property = {}, action) => {
   return property;
 };
 
-export { displayRooms, roomsReducer };
+export { displayRooms, roomsReducer, addRoom };
