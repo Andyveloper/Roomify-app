@@ -16,7 +16,6 @@ const CarouselComp = () => {
   useEffect(() => {
     dispatch(displayRooms());
   }, [dispatch]);
-  console.log(rooms);
   return (
     <>
       {!rooms.length ? (<div>Loading...</div>)

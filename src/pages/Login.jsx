@@ -75,8 +75,6 @@ export default function Login() {
       ...data.data,
       token: response.headers.get('Authorization'),
     };
-
-    console.log(response.headers.get('Authorization'));
     if (response.status === 200) {
       setAuth(localStorage.setItem('isAuth', true));
       localStorage.setItem('userInfo', JSON.stringify(userInfo));
