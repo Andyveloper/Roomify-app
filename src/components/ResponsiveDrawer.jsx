@@ -1,6 +1,7 @@
 /* eslint-disable react/require-default-props */
 /* eslint-disable import/no-extraneous-dependencies */
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {
   Box, AppBar, CssBaseline, Divider, Drawer, IconButton, List, ListItem, ListItemButton,
@@ -84,12 +85,14 @@ function ResponsiveDrawer(props) {
           const { text, icon, onClick } = item;
           return (
             <ListItem key={text} disablePadding>
-              <ListItemButton href={onClick}>
-                <ListItemIcon>
-                  {icon}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
+              <Link className="menu_links" to={onClick}>
+                <ListItemButton>
+                  <ListItemIcon>
+                    {icon}
+                  </ListItemIcon>
+                  <ListItemText primary={text} />
+                </ListItemButton>
+              </Link>
             </ListItem>
           );
         })}
@@ -109,12 +112,14 @@ function ResponsiveDrawer(props) {
           const { text, icon, onClick } = item;
           return (
             <ListItem key={text} disablePadding>
-              <ListItemButton href={onClick}>
-                <ListItemIcon>
-                  {icon}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
+              <Link className="menu_links" to={onClick}>
+                <ListItemButton>
+                  <ListItemIcon>
+                    {icon}
+                  </ListItemIcon>
+                  <ListItemText primary={text} />
+                </ListItemButton>
+              </Link>
             </ListItem>
           );
         })}
