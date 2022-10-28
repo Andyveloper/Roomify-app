@@ -7,6 +7,7 @@ import Rooms from './pages/Rooms';
 import AddReservation from './components/AddReservation';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
+import MyReservations from './components/MyReservations';
 
 function App() {
   const isLogged = () => {
@@ -44,6 +45,7 @@ function App() {
             <Route exact path="/" element={<Rooms />} />
             <Route exact path="/details" element={<Details />} />
             <Route exact path="/reserve" element={<AddReservation />} />
+            <Route exact path="/my-reservations" element={<MyReservations />} />
           </Routes>
         </Container>
       </BrowserRouter>
