@@ -1,5 +1,7 @@
 // const RESERVE_PROPERTY = 'property/housing/RESERVE_PROPERTY';
 const GET_ROOMS = 'property/housing/GET_ROOMS';
+const ADD_ROOM = 'property/housing/ADD_ROOM';
+
 const getRooms = async () => {
   const bearerToken = JSON.parse(localStorage.getItem('userInfo')).token;
   const response = await fetch('http://localhost:3000/rooms', {
@@ -7,6 +9,21 @@ const getRooms = async () => {
     headers: {
       Authorization: `${bearerToken}`,
     },
+  });
+  const data = await response.json();
+  return data;
+};
+
+const addRooms = async (room) => {
+  const bearerToken = JSON.parse(localStorage.getItem('userInfo')).token;
+  const response = await fetch('http://localhost:3000/rooms', {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      Authorization: `${bearerToken}`,
+    },
+    body: JSON.stringify(room)
   });
   const data = await response.json();
   return data;
