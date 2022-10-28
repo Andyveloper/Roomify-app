@@ -7,6 +7,10 @@ import Rooms from './pages/Rooms';
 import AddReservation from './components/AddReservation';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
+import CreateRoom from './pages/CreateRoom';
+import PrivateRoute from './components/PrivateRoute';
+import MyReservations from './components/MyReservations';
+
 
 function App() {
   const isLogged = () => {
@@ -26,10 +30,14 @@ function App() {
       <BrowserRouter>
         {isLogged()}
         <Container
+          maxWidth={false}
           sx={{
             display: 'flex',
-            mt: { xs: '5rem' },
+            position: 'relative',
+            mt: { xs: '56px', sm: '64px' },
+            padding: '0',
           }}
+          disableGutters
         >
 
           {localStorage.getItem('isAuth') === 'true'
@@ -38,8 +46,13 @@ function App() {
 
           <Routes>
             <Route exact path="/" element={<Rooms />} />
+            <Route exact path="/" element={<PrivateRoute />}>
+              <Route exact path="/create-rooms" element={<CreateRoom />} />
+            </Route>
+          
             <Route exact path="/details" element={<Details />} />
             <Route exact path="/reserve" element={<AddReservation />} />
+            <Route exact path="/my-reservations" element={<MyReservations />} />
           </Routes>
         </Container>
       </BrowserRouter>

@@ -11,7 +11,6 @@ import responsive from './CarouselStyling';
 import './carousel.css';
 
 import { displayRooms } from '../redux/actionCreator';
-
 const CarouselComp = () => {
   const dispatch = useDispatch();
   const rooms = useSelector((state) => state.rooms);

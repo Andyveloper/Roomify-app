@@ -1,97 +1,96 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import axios from 'axios';
+import { useState } from 'react';
 
 const AddReservation = () => {
-  const data = useSelector((state) => state.reserveProperty);
-  const url = '';
-  const [property, setProperty] = useState({});
+  const rooms = useSelector((state)=>state.rooms)
+  const roomNames = rooms.map((room)=>room.name)
+  const [roomId, setRoomId] = useState(0)
+  const [info, setInfo] = useState({
+    "city": "",
+    "date": ""
+  })
 
-  const [userReserve, setUserReserve] = useState({
-    property: data,
-    cityName: '',
-    date: '',
-  });
+  console.log(rooms)
+  
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    
+  }
+  
+  const getId = (e) => {
+    const id = rooms.filter((r)=>
+      r.name == e.target.value
+    )[0].id
+
+    console.log(id, e.target.value)
+    setRoomId(id)
+  }
+
+  const getFormInfo = (e) => {
+    setInfo(
+      {
+        ...info,
+        [e.target.name]: e.target.value,
+      }
+    )
+  }
 
   const todayDate = new Date().toISOString().slice(0, 10);
 
-  const handleUserReserve = (e) => {
-    const newData = { ...userReserve };
-    newData[e.target.id] = e.target.value;
-    setUserReserve(newData);
-  };
-
-  useEffect(() => {
-    setProperty(data);
-  }, [property]);
-
-  const submit = (e) => {
-    e.preventDefault();
-    axios.post(url, {
-      property: userReserve.property,
-      cityName: userReserve.cityName,
-      date: userReserve.date,
+  const url = 'http://localhost:3000/rooms'
+    const postReservation = async () => {
+    const storageInfo = JSON.parse(localStorage.getItem('userInfo'));
+    const response = await fetch(`${url}/${roomId}/reservations`,{
+      method: "POST",
+      body:JSON.stringify({
+        "city": info.city,
+        "date": info.date
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `${storageInfo.token}`,
+      }
     })
-      .then((res) => {
-        console.log(res.data);
-      });
-  };
+    window.location.href = '/';
+  }
 
   return (
-    <div>
-      <h1>Add a new reservation</h1>
-      <div
-        className="image-body"
-        style={{ width: '200px', height: '200px' }}
-        id=""
-      >
-        <img
-          src={property.largeImageURL}
-          alt={property.type}
-          className="rounded mx-auto d-block"
-          style={{ width: '100%', height: '100%', cursor: 'pointer' }}
-        />
-      </div>
-      <form
-        className="row g-3"
-        onSubmit={(e) => submit(e)}
-      >
-        <div className="col-md-4">
-          <label
-            htmlFor="validationServer01"
-            className="form-label"
-          >
-            City You Like to Reserve For
-          </label>
-
-          <select
-            aria-label=".form-select-lg example"
-            value={userReserve.cityName}
-            id="cityName"
-            onChange={(e) => handleUserReserve(e)}
-            className={`mb-3 form-select-lg form-select ${userReserve.cityName.trim() ? 'is-valid' : ''}`}
-          >
-            <option selected>Select a City</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+    <div className='reservation'>
+      <h1 className='form-title'>Add a new reservation</h1>  
+      <form className="form" name="form" onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="rooms">Choose a room</label>
+          <br />
+          <select className='input' name="room" id="rooms" onChange={getId} required>
+            {roomNames.map((name,i) => {
+              return (<option key={i} value={name}>{name}</option>)
+            })}
           </select>
+        </div>
 
-          <input
-            type="date"
+        <div>
+          <label htmlFor="city">Choose a city</label>
+          <br />
+          <input className='input' type="text" name="city" id="city" onChange={getFormInfo} required/>
+        </div>
+        
+        <div>
+          <label htmlFor="date">Choose a date</label>
+          <br />
+          <input 
+            className='input' 
+            type="date" 
+            name="date" 
+            id="date" 
             min={todayDate}
-            id="date"
-            className={`form-control ${userReserve.date >= todayDate ? 'is-valid' : ''}`}
-            value={userReserve.date}
-            onChange={(e) => handleUserReserve(e)}
+            onChange={getFormInfo} 
             required
           />
-
         </div>
-        <input type="submit" />
+        <input className='submit' type="submit" onClick={postReservation}/>
       </form>
-    </div>
+    </div> 
   );
 };
 
