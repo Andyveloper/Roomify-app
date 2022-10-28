@@ -30,7 +30,6 @@ const getReservations = async () => {
   return data;
 };
 
-
 const addRooms = async (room) => {
   const bearerToken = JSON.parse(localStorage.getItem('userInfo')).token;
   const response = await fetch('http://localhost:3000/rooms', {
@@ -63,7 +62,6 @@ const displayReservations = () => async (dispatch) => {
   });
 };
 
-
 const addRoom = (newRoom) => async (dispatch) => {
   await addRooms(newRoom);
   dispatch({
@@ -85,14 +83,13 @@ const roomsReducer = (property = [], action) => {
   return property;
 };
 
-
 const reservationsReducer = (property = {}, action) => {
   if (action.type === GET_RESERVATIONS) {
-  return action.payload;
+    return action.payload;
   }
   return property;
 };
 
 export {
-  displayRooms, roomsReducer, displayReservations, reservationsReducer, addRoom
+  displayRooms, roomsReducer, displayReservations, reservationsReducer, addRoom,
 };
