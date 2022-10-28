@@ -25,8 +25,8 @@ function MyReservations() {
       {!reservations.length ? (
         container()
       ) : (
-        <div class="my-reservations">
-            <h1>My Reservations</h1>
+        <div className="my-reservations">
+            <h1 id="reservations-header">My Reservations</h1>
             <Grid
             container
             rowSpacing={4}
@@ -64,25 +64,26 @@ function MyReservations() {
                               height="140"
                               image={`${singleRoom.photo}`}
                               alt="Room"
+                              sx={{padding: '1rem auto'}}
                             />
-                            <h4>
+                            <p>
                               Room:
-                              {singleRoom.name}
-                            </h4>
+                              {` ${singleRoom.name}`}
+                            </p>
                           </>
                         );
                       }
                       return null;
                     },
                     )}
-                    <h4>
+                    <p>
                       City:
-                      {reservation.city}
-                    </h4>
-                    <h4>
+                      {` ${reservation.city}`}
+                    </p>
+                    <p>
                       Date:
-                      {reservation.date}
-                    </h4>
+                      {` ${reservation.city}`}
+                    </p>
                   </div>
                   </Card>
                 </Grid>

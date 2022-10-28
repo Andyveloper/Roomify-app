@@ -7,3 +7,11 @@
 #reservation {
   padding: 1rem;
 }
+
+.MuiCardMedia-root {
+  padding: 0.5rem;
+}
+
+#reservations-header {
+  padding: 2rem;
+}
