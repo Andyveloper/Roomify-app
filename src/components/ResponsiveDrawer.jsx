@@ -106,12 +106,14 @@ function ResponsiveDrawer(props) {
           const { text, icon, onClick } = item;
           return (
             <ListItem key={text} disablePadding>
-              <ListItemButton href={onClick}>
-                <ListItemIcon>
-                  {icon}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
+              <Link to={onClick}>
+                <ListItemButton>
+                  <ListItemIcon>
+                    {icon}
+                  </ListItemIcon>
+                  <ListItemText primary={text} />
+                </ListItemButton>
+              </Link>
             </ListItem>
           );
         })}
