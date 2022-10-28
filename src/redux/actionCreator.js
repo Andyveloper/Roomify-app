@@ -1,6 +1,9 @@
-// const RESERVE_PROPERTY = 'property/housing/RESERVE_PROPERTY';
+// Actions
 const GET_ROOMS = 'property/housing/GET_ROOMS';
+
 const ADD_ROOM = 'property/housing/ADD_ROOM';
+const GET_RESERVATIONS = 'property/housing/GET_RESERVATIONS';
+// Helper functions
 
 const getRooms = async () => {
   const bearerToken = JSON.parse(localStorage.getItem('userInfo')).token;
@@ -13,6 +16,20 @@ const getRooms = async () => {
   const data = await response.json();
   return data;
 };
+const getReservations = async () => {
+  const { rooms } = await getRooms();
+  const firstId = rooms[0].id;
+  const bearerToken = JSON.parse(localStorage.getItem('userInfo')).token;
+  const response = await fetch(`http://localhost:3000/rooms/${firstId}/reservations`, {
+    method: 'GET',
+    headers: {
+      Authorization: `${bearerToken}`,
+    },
+  });
+  const data = await response.json();
+  return data;
+};
+
 
 const addRooms = async (room) => {
   const bearerToken = JSON.parse(localStorage.getItem('userInfo')).token;
@@ -30,6 +47,7 @@ const addRooms = async (room) => {
 };
 
 // Action Creator
+
 const displayRooms = () => async (dispatch) => {
   const { rooms } = await getRooms();
   dispatch({
@@ -37,6 +55,14 @@ const displayRooms = () => async (dispatch) => {
     payload: rooms,
   });
 };
+const displayReservations = () => async (dispatch) => {
+  const { reservations } = await getReservations();
+  dispatch({
+    type: GET_RESERVATIONS,
+    payload: reservations,
+  });
+};
+
 
 const addRoom = (newRoom) => async (dispatch) => {
   await addRooms(newRoom);
@@ -59,4 +85,15 @@ const roomsReducer = (property = [], action) => {
   return property;
 };
 
-export { displayRooms, roomsReducer, addRoom };
+
+const reservationsReducer = (property = {}, action) => {
+  if (action.type === GET_RESERVATIONS) {
+    return action.payload;
+  }
+  return property;
+};
+
+export {
+  displayRooms, roomsReducer, displayReservations, reservationsReducer, addRoom
+};
+

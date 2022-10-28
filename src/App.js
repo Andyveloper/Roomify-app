@@ -9,6 +9,8 @@ import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import CreateRoom from './pages/CreateRoom';
 import PrivateRoute from './components/PrivateRoute';
+import MyReservations from './components/MyReservations';
+
 
 function App() {
   const isLogged = () => {
@@ -49,6 +51,7 @@ function App() {
             </Route>
             <Route exact path="/details" element={<Details />} />
             <Route exact path="/reserve" element={<AddReservation />} />
+            <Route exact path="/my-reservations" element={<MyReservations />} />
           </Routes>
         </Container>
       </BrowserRouter>
