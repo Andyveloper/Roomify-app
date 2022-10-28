@@ -49,7 +49,7 @@ const CarouselComp = () => {
                   <div
                     className="image-carousel"
                   >
-                    <NavLink to="/reserve">
+                    <NavLink to="/details">
                       <img
                         className="ind-image"
                         src={ind.photo}
