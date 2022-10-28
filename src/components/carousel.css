@@ -50,7 +50,6 @@
   text-align: justify;
 }
 
-
 .image-carousel img {
   min-width: 50px;
   max-width: 200px;
@@ -60,14 +59,15 @@
 @media only screen and (max-width: 600px) {
   .image-carousel img {
     width: 150px;
-  } 
+  }
+
   .card-para {
     padding-bottom: 10px;
     font-size: 12px;
     width: 40vw;
   }
-
 }
+
 @media only screen and (min-width: 600px) {
   .main-section {
     margin-left: 15rem;
@@ -82,12 +82,13 @@
     height: 50vh;
   }
 }
+
 @media only screen and (min-width: 900px) {
   .image-carousel img {
-    width: 200px;
+    width: 170px;
   }
 
   .card-para {
-    width: 200px;
+    width: 170px;
   }
 }
