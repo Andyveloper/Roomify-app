@@ -53,7 +53,7 @@ function App() {
           <Routes>
             <Route exact path="/" element={<Rooms />} />
             <Route exact path="/" element={<PrivateRoute />}>
-              <Route exact path="/create-rooms" element={<CreateRoom />} />
+              <Route exact path="/create-room" element={<CreateRoom />} />
             </Route>
 
             <Route exact path="/details" element={<Details />} />
