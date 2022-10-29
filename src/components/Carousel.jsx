@@ -1,71 +1,67 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import React, { useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
-import { CircularProgress } from '@mui/material';
-import responsive from './CarouselStyling';
-import './carousel.css';
-
-import { displayRooms } from '../redux/actionCreator';
+// import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+// import { displayRooms } from '../redux/actionCreator';
 const CarouselComp = () => {
-  const dispatch = useDispatch();
+// const dispatch = useDispatch();
   const rooms = useSelector((state) => state.rooms);
-  useEffect(() => {
-    dispatch(displayRooms());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(displayRooms());
+  // }, [dispatch]);
+  var settings = {
+    dots: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1224,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 950,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 2
+        }
+      }
+    ]
+  };
   return (
     <>
-      {!rooms.length ? (
-        <div className="center">
-          <CircularProgress color="secondary" />
-        </div>
-      )
-        : (
-          <section className="main-section">
-            <div className="header-desc">
-              <h1>Latest Designed Rooms</h1>
-              <small>Please select your choice</small>
-            </div>
-            <Carousel
-              responsive={responsive}
-              infinite
-              autoPlay="desktop"
-              autoPlaySpeed={4000}
-              keyBoardControl
-              transitionDuration={500}
-              containerClass="carousel-container"
-              centerMode
-              slidesToSlide={1}
-              arrows
-              showDots
-            >
-              {rooms.map((ind) => (
-                <React.Fragment key={ind.id}>
-                  <div
-                    className="image-carousel"
-                  >
-                    <NavLink to="/details">
-                      <img
-                        className="ind-image"
-                        src={ind.photo}
-                        alt="rooms"
-                      />
-                    </NavLink>
-
-                    <h4 className="card-h4">{ind.name}</h4>
-                    <p className="card-para">{ind.description.length > 100 ? `${ind.description.slice(0, 200)}...` : ind.description }</p>
+    
+    <div className='slider-container'>
+    <h1>All Rooms</h1>
+      <div className='slider'>
+        <Slider {...settings}>
+            {rooms.map((room)=> (
+              <div key={Math.round(Math.random)} className='room-card'>
+                  <div className='photo-container'>
+                    <img src={room.photo} alt="photo" className='room-photo'/>
                   </div>
-                </React.Fragment>
-              ))}
-            </Carousel>
-          </section>
-        )}
+                  <div className='card-info'>
+                    <h3>{room.name}</h3>
+                    <p>{room.description}</p>
+                  </div>
+              </div>
+            ))}
+        </Slider>
+      </div>
+    </div>
     </>
   );
 };
-
 export default CarouselComp;

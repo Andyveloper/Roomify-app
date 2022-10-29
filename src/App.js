@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Container } from '@mui/material';
 import ResponsiveDrawer from './components/ResponsiveDrawer';
@@ -10,8 +11,13 @@ import SignUp from './pages/SignUp';
 import CreateRoom from './pages/CreateRoom';
 import PrivateRoute from './components/PrivateRoute';
 import MyReservations from './components/MyReservations';
+import {displayRooms} from '../src/redux/actionCreator'
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+  dispatch(displayRooms());
+  }, [dispatch]);
   const isLogged = () => {
     if (localStorage.getItem('isAuth') === 'false' || !localStorage.getItem('isAuth')) {
       return (
@@ -35,6 +41,7 @@ function App() {
             position: 'relative',
             mt: { xs: '56px', sm: '64px' },
             padding: '0',
+            // overflow: 'hidden'
           }}
           disableGutters
         >
