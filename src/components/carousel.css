@@ -1,16 +1,94 @@
-.carousel-button-group {
-  position: absolute;
-}
-
-.carousel-container {
-  border: 5px solid green;
-  width: 100%;
-}
-
-.carousel {
+.center {
   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.MuiContainer-root {
+  flex-direction: column;
+  gap: 2px;
+}
+
+.header-desc {
+  text-align: center;
+}
+
+.header-desc small {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.react-multi-carousel-list {
+  margin-top: 50px;
+}
+
+.react-multi-carousel-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-h4 {
+  text-align: center;
+}
+
+.image-carousel {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 50px;
+  max-width: 150px;
+  gap: 20px;
+  height: 60vh;
+}
+
+.card-para {
+  padding-bottom: 10px;
+  font-size: 12px;
+  width: 15vw;
+  height: 50px;
+  text-align: justify;
 }
 
 .image-carousel img {
-  width: 150px;
+  min-width: 50px;
+  max-width: 200px;
+  border-radius: 50%;
+}
+
+@media only screen and (max-width: 600px) {
+  .image-carousel img {
+    width: 150px;
+  }
+
+  .card-para {
+    padding-bottom: 10px;
+    font-size: 12px;
+    width: 40vw;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .main-section {
+    margin-left: 15rem;
+  }
+
+  .image-carousel img {
+    width: 6rem;
+  }
+
+  .image-carousel {
+    max-width: 100px;
+    height: 50vh;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .image-carousel img {
+    width: 170px;
+  }
+
+  .card-para {
+    width: 170px;
+  }
 }

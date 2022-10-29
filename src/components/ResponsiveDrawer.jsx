@@ -13,7 +13,6 @@ import MeetingRoomIcon from '@mui/icons-material/MeetingRoom';
 import NoMeetingRoomIcon from '@mui/icons-material/NoMeetingRoom';
 import BookOnlineIcon from '@mui/icons-material/BookOnline';
 import ClassIcon from '@mui/icons-material/Class';
-import HouseIcon from '@mui/icons-material/House';
 
 import logo from '../assets/img/logo.png';
 
@@ -33,14 +32,9 @@ function ResponsiveDrawer(props) {
 
   const menuItems = [
     {
-      text: 'Home',
-      icon: <HouseIcon />,
-      onClick: '/',
-    },
-    {
       text: 'Rooms',
       icon: <BedroomParentIcon />,
-      onClick: '/rooms',
+      onClick: '/',
     },
     {
       text: 'Reserve',
@@ -48,9 +42,9 @@ function ResponsiveDrawer(props) {
       onClick: '/reserve',
     },
     {
-      text: 'My Reserves',
+      text: 'My Reservations',
       icon: <ClassIcon />,
-      onClick: '/my-reserves',
+      onClick: '/my-reservations',
     },
   ];
   const adminItems = [];
@@ -60,7 +54,7 @@ function ResponsiveDrawer(props) {
       adminItems.push({
         text: 'Create Room',
         icon: <MeetingRoomIcon />,
-        onClick: '/create-rooms',
+        onClick: '/create-room',
       },
       {
         text: 'Delete Room',
