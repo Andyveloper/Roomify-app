@@ -1,11 +1,11 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-// import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css"; 
-import "slick-carousel/slick/slick-theme.css";
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 // import { displayRooms } from '../redux/actionCreator';
 const CarouselComp = () => {
 // const dispatch = useDispatch();
@@ -13,7 +13,7 @@ const CarouselComp = () => {
   // useEffect(() => {
   //   dispatch(displayRooms());
   // }, [dispatch]);
-  var settings = {
+  const settings = {
     dots: true,
     infinite: false,
     speed: 500,
@@ -27,40 +27,43 @@ const CarouselComp = () => {
           slidesToShow: 2,
           slidesToScroll: 1,
           infinite: true,
-          dots: true
-        }
+          dots: true,
+        },
       },
       {
         breakpoint: 950,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          initialSlide: 2
-        }
-      }
-    ]
+          initialSlide: 2,
+        },
+      },
+    ],
   };
   return (
     <>
-    
-    <div className='slider-container'>
-    <h1>All Rooms</h1>
-      <div className='slider'>
-        <Slider {...settings}>
-            {rooms.map((room)=> (
-              <div key={Math.round(Math.random)} className='room-card'>
-                  <div className='photo-container'>
-                    <img src={room.photo} alt="photo" className='room-photo'/>
-                  </div>
-                  <div className='card-info'>
-                    <h3>{room.name}</h3>
-                    <p>{room.description}</p>
-                  </div>
+
+      <div className="slider-container">
+        <h1>All Rooms</h1>
+        <div className="slider">
+          {/* eslint-disable-next-line */}
+          <Slider {...settings}>
+            {rooms.map((room) => (
+              <div key={Math.round(Math.random)} className="room-card">
+                <div className="photo-container">
+                  <Link to={`/rooms/${room.id}/details`}>
+                    <img src={room.photo} alt="room" className="room-photo" />
+                  </Link>
+                </div>
+                <div className="card-info">
+                  <h3>{room.name}</h3>
+                  <p>{room.description}</p>
+                </div>
               </div>
             ))}
-        </Slider>
+          </Slider>
+        </div>
       </div>
-    </div>
     </>
   );
 };
