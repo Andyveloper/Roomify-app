@@ -1,6 +1,7 @@
 /* eslint-disable react/require-default-props */
 /* eslint-disable import/no-extraneous-dependencies */
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {
   Box, AppBar, CssBaseline, Divider, Drawer, IconButton, List, ListItem, ListItemButton,
@@ -12,7 +13,6 @@ import MeetingRoomIcon from '@mui/icons-material/MeetingRoom';
 import NoMeetingRoomIcon from '@mui/icons-material/NoMeetingRoom';
 import BookOnlineIcon from '@mui/icons-material/BookOnline';
 import ClassIcon from '@mui/icons-material/Class';
-import { Link } from 'react-router-dom';
 
 import logo from '../assets/img/logo.png';
 
@@ -79,14 +79,13 @@ function ResponsiveDrawer(props) {
           const { text, icon, onClick } = item;
           return (
             <ListItem key={text} disablePadding>
-              <Link to={onClick}>
+              <Link className="menu_links" to={onClick}>
                 <ListItemButton>
                   <ListItemIcon>
                     {icon}
                   </ListItemIcon>
                   <ListItemText primary={text} />
                 </ListItemButton>
-
               </Link>
             </ListItem>
           );
@@ -107,7 +106,7 @@ function ResponsiveDrawer(props) {
           const { text, icon, onClick } = item;
           return (
             <ListItem key={text} disablePadding>
-              <Link to={onClick}>
+              <Link className="menu_links" to={onClick}>
                 <ListItemButton>
                   <ListItemIcon>
                     {icon}
