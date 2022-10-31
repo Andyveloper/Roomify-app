@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { deleteRoom } from '../redux/actionCreator';
+import { Button } from '@mui/material';
+import './remove_room.css';
 
 const RemoveRoom = ({name, description, photo, id}) => {
   const dispatchDelete = useDispatch();
@@ -11,12 +13,19 @@ const RemoveRoom = ({name, description, photo, id}) => {
   }
   return (
     <>
-        <div>
-            <h2>{id}</h2>
-            <p>{name}</p>
-            <p>{description}</p>
-            <img src={photo} alt={name} className='room-photo'/>
-            <button type="button" onClick={()=>handleDeleteRoom(id)}>Remove</button>    
+        <div class="remove-room">
+            <img src={photo} alt={name} className='remove-room__photo'/>
+            <div class="remove-room__information">
+                <p>{name}</p>
+                <p>{description}</p>
+            </div>
+            <div>
+            <Button 
+            type="button"
+            variant="outlined"
+            onClick={()=>handleDeleteRoom(id)}>
+            Remove</Button> 
+            </div> 
         </div>
     </>
   );

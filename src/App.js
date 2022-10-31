@@ -20,7 +20,7 @@ function App() {
   useEffect(() => {
     dispatch(displayRooms());
   }, [dispatch]);
-  
+
   const isLogged = () => {
     if (localStorage.getItem('isAuth') === 'false' || !localStorage.getItem('isAuth')) {
       return (
