@@ -5,6 +5,12 @@ const [info, setInfo] = useState({
   date: '',
 });
 
+const handleSubmit = async (e) => {
+  e.preventDefault();
+};
+
+
+
 
 
 export default function ReserveRoom() {
