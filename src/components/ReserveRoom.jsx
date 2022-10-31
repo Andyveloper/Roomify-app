@@ -9,7 +9,14 @@ const handleSubmit = async (e) => {
   e.preventDefault();
 };
 
-
+const getFormInfo = (e) => {
+  setInfo(
+    {
+      ...info,
+      [e.target.name]: e.target.value,
+    },
+  );
+};
 
 
 
