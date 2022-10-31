@@ -143,10 +143,10 @@ code {
   background-color: #97bf0f !important;
 }
 
-.slick-prev:before, .slick-next:before {
+.slick-prev::before,
+.slick-next::before {
   color: #56dc35 !important;
 }
-
 
 @media (max-width: 1600px) {
   .slider-container {
@@ -180,7 +180,9 @@ code {
 
 @media (max-width: 600px) {
   .slider-container { width: 100%; }
-  .slick-prev:before, .slick-next:before {
+
+  .slick-prev::before,
+  .slick-next::before {
     display: none;
   }
 }
