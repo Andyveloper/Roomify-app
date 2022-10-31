@@ -20,6 +20,8 @@ const getFormInfo = (e) => {
 
 const todayDate = new Date().toISOString().slice(0, 10);
 
+const url = 'http://localhost:3000/rooms';
+
 export default function ReserveRoom() {
   return (
     <div className="reservation">
