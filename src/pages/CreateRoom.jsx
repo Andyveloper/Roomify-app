@@ -3,7 +3,6 @@ import AddRoom from '../components/AddRoom';
 
 const CreateRoom = () => (
   <>
-    <Toolbar />
     <AddRoom />
   </>
 );

@@ -1,7 +1,7 @@
 // Actions
 const GET_ROOMS = 'property/housing/GET_ROOMS';
-
 const ADD_ROOM = 'property/housing/ADD_ROOM';
+const REMOVE_ROOM = 'property/housing/REMOVE_ROOM';
 const GET_RESERVATIONS = 'property/housing/GET_RESERVATIONS';
 // Helper functions
 
@@ -45,6 +45,16 @@ const addRooms = async (room) => {
   return data;
 };
 
+const removeRoom = async (id) => {
+  const bearerToken = JSON.parse(localStorage.getItem('userInfo')).token;
+  await fetch(`http://localhost:3000/rooms/${id}`, {
+    method: 'DELETE',
+    headers: {
+      Authorization: `${bearerToken}`,
+    },
+  });
+};
+
 // Action Creator
 
 const displayRooms = () => async (dispatch) => {
@@ -70,6 +80,14 @@ const addRoom = (newRoom) => async (dispatch) => {
   });
 };
 
+const deleteRoom = (id) => async (dispatch) => {
+  await removeRoom(id);
+  dispatch({
+    type: REMOVE_ROOM,
+    payload: id,
+  });
+};
+
 const roomsReducer = (property = [], action) => {
   if (action.type === GET_ROOMS) {
     return action.payload;
@@ -79,6 +97,10 @@ const roomsReducer = (property = [], action) => {
       ...property,
       action.payload,
     ];
+  }
+  if (action.type === REMOVE_ROOM) {
+    const newArrayRoom = property.filter((room) => room.id !== action.payload);
+    return newArrayRoom;
   }
   return property;
 };
@@ -91,5 +113,5 @@ const reservationsReducer = (property = {}, action) => {
 };
 
 export {
-  displayRooms, roomsReducer, displayReservations, reservationsReducer, addRoom,
+  displayRooms, roomsReducer, displayReservations, reservationsReducer, addRoom, deleteRoom,
 };

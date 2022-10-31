@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   BrowserRouter, Routes, Route,
 } from 'react-router-dom';
+
 import { Container } from '@mui/material';
 import ResponsiveDrawer from './components/ResponsiveDrawer';
 import Details from './pages/Details';
@@ -14,14 +15,17 @@ import CreateRoom from './pages/CreateRoom';
 import PrivateRoute from './components/PrivateRoute';
 import MyReservations from './components/MyReservations';
 import { displayRooms } from './redux/actionCreator';
+import DeleteRoom from './pages/DeleteRoom';
 
 function App() {
   const rooms = useSelector((state) => state.rooms);
 
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(displayRooms());
   }, [dispatch]);
+
   const isLogged = () => {
     if (localStorage.getItem('isAuth') === 'false' || !localStorage.getItem('isAuth')) {
       return (
@@ -72,6 +76,7 @@ function App() {
 
             <Route exact path="/" element={<PrivateRoute />}>
               <Route exact path="/create-room" element={<CreateRoom />} />
+              <Route exact path="/delete-room" element={<DeleteRoom />} />
             </Route>
             {/* {rooms.map((room) => <Route key={room.name}
             exact path={`/rooms/${room.id}/details`} element={<Details />} />)} */}
