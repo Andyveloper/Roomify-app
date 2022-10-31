@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  BrowserRouter, Routes, Route,
+} from 'react-router-dom';
+
 import { Container } from '@mui/material';
 import ResponsiveDrawer from './components/ResponsiveDrawer';
 import Details from './pages/Details';
@@ -14,7 +17,10 @@ import MyReservations from './components/MyReservations';
 import { displayRooms } from './redux/actionCreator';
 import DeleteRoom from './pages/DeleteRoom';
 
+
 function App() {
+  const rooms = useSelector((state) => state.rooms);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -55,12 +61,26 @@ function App() {
 
           <Routes>
             <Route exact path="/" element={<Rooms />} />
+            {rooms.map((room) => (
+              <Route
+                key={room.name}
+                path={`/rooms/${room.id}/details`}
+                element={(
+                  <Details
+                    name={room.name}
+                    description={room.description}
+                    photo={room.photo}
+                  />
+)}
+              />
+            ))}
+
             <Route exact path="/" element={<PrivateRoute />}>
               <Route exact path="/create-room" element={<CreateRoom />} />
               <Route exact path="/delete-room" element={<DeleteRoom />} />
             </Route>
-
-            <Route exact path="/details" element={<Details />} />
+            {/* {rooms.map((room) => <Route key={room.name}
+            exact path={`/rooms/${room.id}/details`} element={<Details />} />)} */}
             <Route exact path="/reserve" element={<AddReservation />} />
             <Route exact path="/my-reservations" element={<MyReservations />} />
           </Routes>
