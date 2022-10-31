@@ -1,11 +1,17 @@
-import React from 'react'
-import { useSelector } from 'react-redux';
+import React, {useEffect} from 'react'
+import { useSelector, useDispatch } from 'react-redux';
 import RemoveRoom from '../components/RemoveRoom';
+import { displayRooms } from '../redux/actionCreator';
 
 
 const DeleteRoom = () => {
   const rooms = useSelector((state) => state.rooms);
-  console.log("delete", rooms)
+  const dispatch = useDispatch();
+  
+  useEffect(() => {
+    dispatch(displayRooms());
+  }, [dispatch]);
+
   return (
   <>
   {rooms.map((room)=>(
@@ -16,7 +22,6 @@ const DeleteRoom = () => {
             photo={room.photo}/> 
         )
         )}
-    
   </>
   )
 }

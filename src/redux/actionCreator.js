@@ -45,15 +45,15 @@ const addRooms = async (room) => {
   return data;
 };
 
-const removeRoom = async(id) => {
+const removeRoom = async (id) => {
   const bearerToken = JSON.parse(localStorage.getItem('userInfo')).token;
   await fetch(`http://localhost:3000/rooms/${id}`, {
     method: 'DELETE',
     headers: {
       Authorization: `${bearerToken}`,
-    }
+    },
   });
-}
+};
 
 // Action Creator
 
@@ -85,8 +85,8 @@ const deleteRoom = (id) => async (dispatch) => {
   dispatch({
     type: REMOVE_ROOM,
     payload: id,
-  })
-}
+  });
+};
 
 const roomsReducer = (property = [], action) => {
   if (action.type === GET_ROOMS) {
@@ -99,7 +99,7 @@ const roomsReducer = (property = [], action) => {
     ];
   }
   if (action.type === REMOVE_ROOM) {
-    const newArrayRoom = property.filter((room)=>room.id !== action.payload)
+    const newArrayRoom = property.filter((room) => room.id !== action.payload);
     return newArrayRoom;
   }
   return property;
@@ -113,5 +113,5 @@ const reservationsReducer = (property = {}, action) => {
 };
 
 export {
-  displayRooms, roomsReducer, displayReservations, reservationsReducer, addRoom, deleteRoom
+  displayRooms, roomsReducer, displayReservations, reservationsReducer, addRoom, deleteRoom,
 };
