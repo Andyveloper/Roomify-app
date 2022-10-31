@@ -1,9 +1,9 @@
 import React from 'react';
 import { Grid, Box } from '@mui/material';
-
+import { PropTypes } from 'prop-types';
 import DetailsTable from './DetailsTable';
 
-function DetailsGrid() {
+function DetailsGrid({ name, description, photo }) {
   return (
     <Grid
       container
@@ -41,7 +41,7 @@ function DetailsGrid() {
           },
         }}
         >
-          <img className="room-img" src="https://placeimg.com/640/640/arch" alt="room" />
+          <img className="room-img" src={photo} alt="room" />
         </Box>
       </Grid>
       <Grid
@@ -57,8 +57,8 @@ function DetailsGrid() {
             m: '2rem',
           }}
         >
-          <h2>TITLE GOES HERE</h2>
-          <p>DESCRIPTION GOES HERE</p>
+          <h2>{name}</h2>
+          <p>{description}</p>
 
           <DetailsTable />
         </Box>
@@ -67,5 +67,11 @@ function DetailsGrid() {
     </Grid>
   );
 }
+
+DetailsGrid.propTypes = {
+  name: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  photo: PropTypes.string.isRequired,
+};
 
 export default DetailsGrid;

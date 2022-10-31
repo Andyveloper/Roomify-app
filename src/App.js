@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import {
+  BrowserRouter, Routes, Route,
+} from 'react-router-dom';
 import { Container } from '@mui/material';
 import ResponsiveDrawer from './components/ResponsiveDrawer';
 import Details from './pages/Details';
@@ -11,12 +13,14 @@ import SignUp from './pages/SignUp';
 import CreateRoom from './pages/CreateRoom';
 import PrivateRoute from './components/PrivateRoute';
 import MyReservations from './components/MyReservations';
-import {displayRooms} from '../src/redux/actionCreator'
+import { displayRooms } from './redux/actionCreator';
 
 function App() {
+  const rooms = useSelector((state) => state.rooms);
+
   const dispatch = useDispatch();
   useEffect(() => {
-  dispatch(displayRooms());
+    dispatch(displayRooms());
   }, [dispatch]);
   const isLogged = () => {
     if (localStorage.getItem('isAuth') === 'false' || !localStorage.getItem('isAuth')) {
@@ -52,11 +56,25 @@ function App() {
 
           <Routes>
             <Route exact path="/" element={<Rooms />} />
+            {rooms.map((room) => (
+              <Route
+                key={room.name}
+                path={`/rooms/${room.id}/details`}
+                element={(
+                  <Details
+                    name={room.name}
+                    description={room.description}
+                    photo={room.photo}
+                  />
+)}
+              />
+            ))}
+
             <Route exact path="/" element={<PrivateRoute />}>
               <Route exact path="/create-room" element={<CreateRoom />} />
             </Route>
-
-            <Route exact path="/details" element={<Details />} />
+            {/* {rooms.map((room) => <Route key={room.name}
+            exact path={`/rooms/${room.id}/details`} element={<Details />} />)} */}
             <Route exact path="/reserve" element={<AddReservation />} />
             <Route exact path="/my-reservations" element={<MyReservations />} />
           </Routes>
