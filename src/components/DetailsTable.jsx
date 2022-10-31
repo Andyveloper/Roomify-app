@@ -76,7 +76,7 @@ export default function DetailsTable() {
         >
           {' '}
           Reserve this Room
-
+          
         </Button>
       </Link>
     </>
