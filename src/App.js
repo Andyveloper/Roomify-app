@@ -17,7 +17,6 @@ import MyReservations from './components/MyReservations';
 import { displayRooms } from './redux/actionCreator';
 import DeleteRoom from './pages/DeleteRoom';
 
-
 function App() {
   const rooms = useSelector((state) => state.rooms);
 
