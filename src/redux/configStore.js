@@ -5,7 +5,7 @@ const store = configureStore({
   reducer: {
     rooms: roomsReducer,
     reservations: reservationsReducer,
-    roomId: idReducer
+    roomId: idReducer,
   },
 });
 
