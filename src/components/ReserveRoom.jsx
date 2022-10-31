@@ -1,5 +1,10 @@
 import React from 'react'
 
+const [info, setInfo] = useState({
+  city: '',
+  date: '',
+});
+
 
 
 export default function ReserveRoom() {
