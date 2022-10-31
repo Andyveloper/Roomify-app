@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Container } from '@mui/material';
 import ResponsiveDrawer from './components/ResponsiveDrawer';
@@ -11,13 +11,16 @@ import SignUp from './pages/SignUp';
 import CreateRoom from './pages/CreateRoom';
 import PrivateRoute from './components/PrivateRoute';
 import MyReservations from './components/MyReservations';
-import {displayRooms} from '../src/redux/actionCreator'
+import { displayRooms } from './redux/actionCreator';
+import DeleteRoom from './pages/DeleteRoom';
 
 function App() {
   const dispatch = useDispatch();
+
   useEffect(() => {
-  dispatch(displayRooms());
+    dispatch(displayRooms());
   }, [dispatch]);
+  
   const isLogged = () => {
     if (localStorage.getItem('isAuth') === 'false' || !localStorage.getItem('isAuth')) {
       return (
@@ -54,6 +57,7 @@ function App() {
             <Route exact path="/" element={<Rooms />} />
             <Route exact path="/" element={<PrivateRoute />}>
               <Route exact path="/create-room" element={<CreateRoom />} />
+              <Route exact path="/delete-room" element={<DeleteRoom />} />
             </Route>
 
             <Route exact path="/details" element={<Details />} />
