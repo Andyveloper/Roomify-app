@@ -65,7 +65,7 @@ export default function DetailsTable() {
       </TableContainer>
       <Link
         className="menu_links"
-        to="/reserve"
+        to="/reserve-room"
       >
         <Button
           className="btn-color"
