@@ -69,6 +69,7 @@ function App() {
                     name={room.name}
                     description={room.description}
                     photo={room.photo}
+                    id={room.id}
                   />
 )}
               />
