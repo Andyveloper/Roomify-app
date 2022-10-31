@@ -3,7 +3,7 @@ const GET_ROOMS = 'property/housing/GET_ROOMS';
 const ADD_ROOM = 'property/housing/ADD_ROOM';
 const REMOVE_ROOM = 'property/housing/REMOVE_ROOM';
 const GET_RESERVATIONS = 'property/housing/GET_RESERVATIONS';
-const GET_ROOM_ID =  'property/housing/GET_ROOM_ID'
+const GET_ROOM_ID = 'property/housing/GET_ROOM_ID';
 // Helper functions
 
 const getRooms = async () => {
@@ -58,14 +58,10 @@ const removeRoom = async (id) => {
 
 // Action Creator
 
-const getRoomId = (id) => {
-  return ({
-    type: GET_ROOM_ID,
-    payload: id
-  });
-}
-
-
+const getRoomId = (id) => ({
+  type: GET_ROOM_ID,
+  payload: id,
+});
 
 const displayRooms = () => async (dispatch) => {
   const { rooms } = await getRooms();
@@ -130,5 +126,5 @@ const idReducer = (property = 0, action) => {
 };
 
 export {
-  displayRooms, getRoomId, roomsReducer, displayReservations, reservationsReducer, addRoom, deleteRoom, idReducer
+  displayRooms, getRoomId, roomsReducer, displayReservations, reservationsReducer, addRoom, deleteRoom, idReducer,
 };
