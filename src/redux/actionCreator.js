@@ -59,11 +59,13 @@ const removeRoom = async (id) => {
 // Action Creator
 
 const getRoomId = (id) => {
-  dispatch({
+  return ({
     type: GET_ROOM_ID,
     payload: id
   });
 }
+
+
 
 const displayRooms = () => async (dispatch) => {
   const { rooms } = await getRooms();
