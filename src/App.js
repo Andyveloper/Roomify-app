@@ -16,6 +16,7 @@ import PrivateRoute from './components/PrivateRoute';
 import MyReservations from './components/MyReservations';
 import { displayRooms } from './redux/actionCreator';
 import DeleteRoom from './pages/DeleteRoom';
+import ReserveRoom from './components/ReserveRoom';
 
 function App() {
   const rooms = useSelector((state) => state.rooms);
@@ -81,6 +82,7 @@ function App() {
             </Route>
             {/* {rooms.map((room) => <Route key={room.name}
             exact path={`/rooms/${room.id}/details`} element={<Details />} />)} */}
+            <Route exact path="/reserve-room" element={<ReserveRoom />} />
             <Route exact path="/reserve" element={<AddReservation />} />
             <Route exact path="/my-reservations" element={<MyReservations />} />
           </Routes>
