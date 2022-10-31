@@ -126,5 +126,12 @@ const idReducer = (property = 0, action) => {
 };
 
 export {
-  displayRooms, getRoomId, roomsReducer, displayReservations, reservationsReducer, addRoom, deleteRoom, idReducer,
+  displayRooms,
+  getRoomId,
+  roomsReducer,
+  displayReservations,
+  reservationsReducer,
+  addRoom,
+  deleteRoom,
+  idReducer,
 };
