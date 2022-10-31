@@ -22,6 +22,22 @@ const todayDate = new Date().toISOString().slice(0, 10);
 
 const url = 'http://localhost:3000/rooms';
 
+const postReservation = async () => {
+  const storageInfo = JSON.parse(localStorage.getItem('userInfo'));
+  await fetch(`${url}/${roomId}/reservations`, {
+    method: 'POST',
+    body: JSON.stringify({
+      city: info.city,
+      date: info.date,
+    }),
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `${storageInfo.token}`,
+    },
+  });
+  window.location.href = '/';
+};
+
 export default function ReserveRoom() {
   return (
     <div className="reservation">
