@@ -1,5 +1,9 @@
 import React from 'react'
 
+
+
+export default function ReserveRoom() {
+
 const [info, setInfo] = useState({
   city: '',
   date: '',
@@ -37,8 +41,6 @@ const postReservation = async () => {
   });
   window.location.href = '/';
 };
-
-export default function ReserveRoom() {
   return (
     <div className="reservation">
       <h1 className="form-title">Reserve room</h1>
