@@ -78,7 +78,7 @@ export default function Login() {
     if (response.status === 200) {
       setAuth(localStorage.setItem('isAuth', true));
       localStorage.setItem('userInfo', JSON.stringify(userInfo));
-      window.location.href = '/details';
+      window.location.href = '/';
     }
 
     return data;
