@@ -6,8 +6,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-image: url(../assets/img/reservesbg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .container__title{
   text-align: center;
+  color: #fff;
+}
+
+.textfield__input{
+  background-color: #fff;
 }
