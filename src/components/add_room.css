@@ -1,3 +1,13 @@
 .container {
-  padding: 0 48px;
+  padding: 1rem 4rem;
+  width: 100%;
+  height: calc(100vh - 64px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container__title{
+  text-align: center;
 }
