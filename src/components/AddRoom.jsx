@@ -39,6 +39,7 @@ const AddRoom = () => {
         photo: '',
       },
     );
+    window.location.href = '/';
   };
 
   return (
