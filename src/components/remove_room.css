@@ -1,14 +1,21 @@
+.remove-room__container {
+  margin: 1rem 3rem;
+  display: flex;
+  width: 85%;
+  height: calc(100vh - 64px);
+  flex-direction: column;
+}
+
 .remove-room {
-  margin: 3% 5%;
-  width: 100%;
+  margin: 1rem;
+  width: auto;
   padding: 0.5rem 1rem;
   display: flex;
-  flex-direction: column;
   align-items: center;
   border: solid 1px #e8e8e8;
   border-radius: 4px;
   background-color: var(--color-white);
-  gap: 3rem;
+  gap: 1rem;
 }
 
 .remove-room__photo {
@@ -21,4 +28,11 @@
 .remove-room__information {
   display: flex;
   flex-direction: column;
+}
+
+@media (max-width: 600px) {
+  .remove-room__container {
+    width: 100%;
+    height: calc(100vh - 56px);
+  }
 }
