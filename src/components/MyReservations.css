@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 #reservation {
@@ -15,3 +16,8 @@
 #reservations-header {
   padding: 2rem;
 }
+
+.MuiGrid-container {
+  justify-content:center;
+}
+
