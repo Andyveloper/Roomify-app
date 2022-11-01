@@ -132,7 +132,7 @@ code {
 }
 
 .room-card {
-  margin: 24px;
+  padding: 24px;
 }
 
 .slick-arrow {
@@ -197,9 +197,14 @@ code {
 }
 
 .logout-button {
+  background-color: transparent;
+  color: white;
   position:absolute;
+  padding: 2rem;
+  margin-right:1rem;
   right:0;
-  padding-right:1rem;
+  border: none;
+  font-size: 1.2rem;  
 }
 
 .MuiDrawer-paperAnchorDockedLeft {
@@ -210,4 +215,20 @@ code {
   text-align: center;
   padding: 1rem;
 text-decoration: underline;
+}
+
+#room-description {
+  text-align: center;;
+}
+
+.MuiToolbar-gutters {
+  background-color: #5FD840;
+}
+
+#logo {
+  padding: 0.61rem 2rem;
+}
+
+.MuiSvgIcon-root {
+  color: #5FD840;
 }

@@ -58,7 +58,7 @@ const CarouselComp = () => {
                 </div>
                 <div className="card-info">
                   <h3 id="room-name">{room.name}</h3>
-                  <p>{room.description}</p>
+                  <p id="room-description">{room.description}</p>
                 </div>
               </div>
             ))}
