@@ -57,7 +57,7 @@ const CarouselComp = () => {
                   </Link>
                 </div>
                 <div className="card-info">
-                  <h3>{room.name}</h3>
+                  <h3 id="room-name">{room.name}</h3>
                   <p>{room.description}</p>
                 </div>
               </div>
