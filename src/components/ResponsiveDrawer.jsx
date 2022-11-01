@@ -13,14 +13,12 @@ import MeetingRoomIcon from '@mui/icons-material/MeetingRoom';
 import NoMeetingRoomIcon from '@mui/icons-material/NoMeetingRoom';
 import BookOnlineIcon from '@mui/icons-material/BookOnline';
 import ClassIcon from '@mui/icons-material/Class';
-
 import logo from '../assets/img/logo.png';
-
 import Logout from './Logout';
 
 const drawerWidth = 240;
 const useStyles = {
-  maxWidth: drawerWidth,
+  maxWidth: drawerWidth
 };
 
 function ResponsiveDrawer(props) {
@@ -67,7 +65,7 @@ function ResponsiveDrawer(props) {
   isAdmin();
   const drawer = (
     <div>
-      <img style={useStyles} src={logo} alt="logo" />
+      <img style={useStyles} src={logo} alt="logo" id="logo" />
       <Divider />
       <List>
         <Box p={2} width="200px" textAlign="left" role="presentation">

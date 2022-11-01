@@ -23,13 +23,9 @@ function Logout() {
     return response;
   };
   return (
-    <Button
-      variant="contained"
-      color="primary"
-      onClick={handleClick}
-    >
-      Logout
-    </Button>
+    <button class="logout-button">
+     Logout
+    </button>
   );
 }
 

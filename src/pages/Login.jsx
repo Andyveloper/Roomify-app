@@ -78,13 +78,14 @@ export default function Login() {
     if (response.status === 200) {
       setAuth(localStorage.setItem('isAuth', true));
       localStorage.setItem('userInfo', JSON.stringify(userInfo));
-      window.location.href = '/details';
+      window.location.href = '/';
     }
 
     return data;
   };
 
   return (
+    <div class="login-container">
     <ThemeProvider theme={theme}>
       <Grid container component="main" sx={{ height: '100vh' }}>
         <CssBaseline />
@@ -169,5 +170,6 @@ export default function Login() {
         </Grid>
       </Grid>
     </ThemeProvider>
+    </div>
   );
 }

@@ -40,7 +40,7 @@ export default function ReserveRoom() {
         Authorization: `${storageInfo.token}`,
       },
     });
-    window.location.href = '/';
+    window.location.href = '/my-reservations';
   };
 
   return (

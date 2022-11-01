@@ -132,7 +132,7 @@ code {
 }
 
 .room-card {
-  margin: 24px;
+  padding: 24px;
 }
 
 .slick-arrow {
@@ -146,6 +146,7 @@ code {
 .slick-prev::before,
 .slick-next::before {
   color: #56dc35 !important;
+  font-size: 4rem !important;
 }
 
 @media (max-width: 1600px) {
@@ -185,4 +186,49 @@ code {
   .slick-next::before {
     display: none;
   }
+}
+
+.login-container {
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  position: fixed;
+  z-index: 10;
+}
+
+.logout-button {
+  background-color: transparent;
+  color: white;
+  position: absolute;
+  padding: 2rem;
+  margin-right: 1rem;
+  right: 0;
+  border: none;
+  font-size: 1.2rem;
+}
+
+.MuiDrawer-paperAnchorDockedLeft {
+  overflow: hidden;
+}
+
+#room-name {
+  text-align: center;
+  padding: 1rem;
+  text-decoration: underline;
+}
+
+#room-description {
+  text-align: center;
+}
+
+.MuiToolbar-gutters {
+  background-color: #5fd840;
+}
+
+#logo {
+  padding: 0.61rem 2rem;
+}
+
+.MuiSvgIcon-root {
+  color: #5fd840;
 }

@@ -44,7 +44,6 @@ const CarouselComp = () => {
   };
   return (
     <>
-
       <div className="slider-container">
         <h1>All Rooms</h1>
         <div className="slider">
@@ -58,8 +57,8 @@ const CarouselComp = () => {
                   </Link>
                 </div>
                 <div className="card-info">
-                  <h3>{room.name}</h3>
-                  <p>{room.description}</p>
+                  <h3 id="room-name">{room.name}</h3>
+                  <p id="room-description">{room.description}</p>
                 </div>
               </div>
             ))}
