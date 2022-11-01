@@ -23,6 +23,7 @@ function Logout() {
     return response;
   };
   return (
+    <div class="logout-button">
     <Button
       variant="contained"
       color="primary"
@@ -30,6 +31,7 @@ function Logout() {
     >
       Logout
     </Button>
+    </div>
   );
 }
 

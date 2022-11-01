@@ -13,9 +13,7 @@ import MeetingRoomIcon from '@mui/icons-material/MeetingRoom';
 import NoMeetingRoomIcon from '@mui/icons-material/NoMeetingRoom';
 import BookOnlineIcon from '@mui/icons-material/BookOnline';
 import ClassIcon from '@mui/icons-material/Class';
-
 import logo from '../assets/img/logo.png';
-
 import Logout from './Logout';
 
 const drawerWidth = 240;

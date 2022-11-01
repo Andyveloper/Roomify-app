@@ -194,3 +194,9 @@ code {
   position: fixed;
   z-index: 10;
 }
+
+.logout-button {
+  position:absolute;
+  right:0;
+  padding-right:1rem;
+}
