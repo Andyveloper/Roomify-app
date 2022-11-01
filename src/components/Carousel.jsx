@@ -42,7 +42,6 @@ const CarouselComp = () => {
   };
   return (
     <>
-
       <div className="slider-container">
         <h1>All Rooms</h1>
         <div className="slider">
