@@ -7,7 +7,7 @@ function Logout() {
   const { isAuth, setAuth } = useContext(LoginContext);
   const handleClick = async (e) => {
     e.preventDefault();
-    const url = 'http://localhost:3000/logout';
+    const url = 'http://roomifyap.herokuapp.com/logout';
     const storageInfo = JSON.parse(localStorage.getItem('userInfo'));
     const response = await fetch(url, {
       method: 'DELETE',

@@ -22,7 +22,7 @@ function Copyright(props) {
     // eslint-disable-next-line react/jsx-props-no-spreading
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="localhost:3000">
+      <Link color="inherit" href="http://roomifyap.herokuapp.com/">
         Roomify
       </Link>
       {' '}
@@ -55,7 +55,7 @@ export default function Login() {
   const { isAuth, setAuth } = useContext(LoginContext);
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const url = 'http://localhost:3000/login';
+    const url = 'http://roomifyap.herokuapp.com/login';
     const response = await fetch(url, {
       method: 'POST',
       body: JSON.stringify({
