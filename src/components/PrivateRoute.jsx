@@ -3,10 +3,12 @@ import { Navigate, Outlet } from 'react-router-dom';
 
 const isAdmin = () => {
   const userInfo = JSON.parse(localStorage.getItem('userInfo'));
-  if (userInfo.role === 'admin') {
-    return true;
+  if (localStorage.getItem('userInfo') !== null) {
+    if (userInfo.role === 'admin') {
+      return true;
+    }
+    return false;
   }
-  return false;
 };
 
 const Admin = isAdmin();
