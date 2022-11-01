@@ -27,7 +27,6 @@ code {
 }
 
 .reservation {
-  background-color: aqua;
   background-image: url(./assets/img/reservesbg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -144,6 +143,11 @@ code {
   background-color: #97bf0f !important;
 }
 
+.slick-prev::before,
+.slick-next::before {
+  color: #56dc35 !important;
+}
+
 @media (max-width: 1600px) {
   .slider-container {
     width: 80%;
@@ -152,12 +156,35 @@ code {
 
 @media (max-width: 1237px) {
   .slider-container {
+    width: 75%;
+  }
+}
+
+@media (max-width: 1061px) {
+  .slider-container {
     width: 70%;
+  }
+}
+
+@media (max-width: 1061px) {
+  .slider-container {
+    width: 70%;
+  }
+}
+
+@media (max-width: 768px) {
+  .slider-container {
+    width: 65%;
   }
 }
 
 @media (max-width: 600px) {
   .slider-container { width: 100%; }
+
+  .slick-prev::before,
+  .slick-next::before {
+    display: none;
+  }
 }
 
 .login-container {

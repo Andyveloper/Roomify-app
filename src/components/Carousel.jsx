@@ -36,6 +36,8 @@ const CarouselComp = () => {
           slidesToShow: 1,
           slidesToScroll: 1,
           initialSlide: 2,
+          infinite: true,
+          dots: true
         },
       },
     ],

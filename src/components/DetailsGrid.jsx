@@ -1,9 +1,18 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Grid, Box } from '@mui/material';
 import { PropTypes } from 'prop-types';
 import DetailsTable from './DetailsTable';
+import { getRoomId } from '../redux/actionCreator';
+import { useDispatch } from 'react-redux';
 
-function DetailsGrid({ name, description, photo }) {
+function DetailsGrid({ name, description, photo, id}) {
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getRoomId(id));
+  }, [dispatch]);
+  
   return (
     <Grid
       container
