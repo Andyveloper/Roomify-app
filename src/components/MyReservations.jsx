@@ -16,11 +16,7 @@ function MyReservations() {
   }, [dispatch]);
 
   function container() {
-    return (
-      <Container maxWidth={false}>
-        <CircularProgress />
-      </Container>
-    );
+    return (<h1>No reservations available</h1>);
   }
   return (
     <>
