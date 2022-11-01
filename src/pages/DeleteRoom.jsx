@@ -13,16 +13,16 @@ const DeleteRoom = () => {
   }, [dispatch]);
 
   return (
-  <>
-  {rooms.map((room)=>(
-            <RemoveRoom
-            id={room.id}
-            name={room.name}
-            description={room.description}
-            photo={room.photo}/> 
-        )
-        )}
-  </>
+    <div className="remove-room__container">
+      {rooms.map((room)=>(
+                <RemoveRoom
+                id={room.id}
+                name={room.name}
+                description={room.description}
+                photo={room.photo}/> 
+            )
+            )}
+    </div>
   )
 }
 
