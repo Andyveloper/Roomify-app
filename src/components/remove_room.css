@@ -1,4 +1,4 @@
-.remove-room__container{
+.remove-room__container {
   margin: 1rem 3rem;
   display: flex;
   width: 85%;
@@ -30,9 +30,8 @@
   flex-direction: column;
 }
 
-
 @media (max-width: 600px) {
-  .remove-room__container{
+  .remove-room__container {
     width: 100%;
     height: calc(100vh - 56px);
   }
