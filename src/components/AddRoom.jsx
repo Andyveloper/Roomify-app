@@ -44,7 +44,7 @@ const AddRoom = () => {
 
   return (
     <div className="container">
-      <div>Add Room</div>
+      <h2 className="container__title">Add Room</h2>
       <Grid
         container
         direction="column"
