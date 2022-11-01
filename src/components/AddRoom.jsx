@@ -6,6 +6,12 @@ import Grid from '@mui/material/Grid';
 import { addRoom } from '../redux/actionCreator';
 import './add_room.css';
 
+import { createTheme, ThemeProvider} from '@mui/material/styles';
+
+
+
+
+
 const AddRoom = () => {
   const dispatchRoom = useDispatch();
   const [roomArray, setRoomArray] = useState({
@@ -41,8 +47,25 @@ const AddRoom = () => {
     );
     window.location.href = '/';
   };
+  const theme = createTheme({
+    status: {
+      danger: '#e53e3e',
+    },
+    palette: {
+      primary: {
+        main: '#000',
+        darker: '#000',
+      },
+      neutral: {
+        main: '#fff',
+        contrastText: '#000',
+      },
+    },
+  });
 
   return (
+
+    
     <div className="container">
       <h2 className="container__title">Add Room</h2>
       <Grid
@@ -53,6 +76,7 @@ const AddRoom = () => {
       >
 
         <form className="form__container">
+        <ThemeProvider theme={theme}>
           <Grid
             container
             justify="center"
@@ -65,16 +89,20 @@ const AddRoom = () => {
               md={12}
               lg={12}
             >
-              <TextField
-                id="standard-basic"
-                label="Room Name"
-                variant="standard"
-                name="name"
-                value={roomArray.name}
-                onChange={(e) => handleInputChange(e)}
-                fullWidth
-                required
-              />
+             
+                <TextField
+                  className="textfield__input"
+                  id="standard-basic"
+                  label="Room Name"
+                  variant="outlined" 
+                  color="primary"
+                  name="name"
+                  value={roomArray.name}
+                  onChange={(e) => handleInputChange(e)}
+                  fullWidth
+                  required
+                />
+             
             </Grid>
             <Grid
               item
@@ -83,6 +111,7 @@ const AddRoom = () => {
               lg={12}
             >
               <TextField
+                className="textfield__input"
                 id="standard-multiline-flexible"
                 label="Room Description"
                 multiline
@@ -90,7 +119,7 @@ const AddRoom = () => {
                 name="description"
                 value={roomArray.description}
                 onChange={(e) => handleInputChange(e)}
-                variant="standard"
+                variant="outlined"
                 fullWidth
                 required
               />
@@ -103,9 +132,10 @@ const AddRoom = () => {
               lg={12}
             >
               <TextField
+                className="textfield__input"
                 id="standard-basic"
                 label="Room URL"
-                variant="standard"
+                variant="outlined"
                 name="photo"
                 value={roomArray.photo}
                 onChange={(e) => handleInputChange(e)}
@@ -118,7 +148,8 @@ const AddRoom = () => {
             >
               <Button
                 type="button"
-                variant="outlined"
+                color="neutral"
+                variant="contained"
                 onClick={handleSubmit}
               >
                 Add Room
@@ -126,6 +157,7 @@ const AddRoom = () => {
               </Button>
             </Grid>
           </Grid>
+          </ThemeProvider>
         </form>
       </Grid>
     </div>
