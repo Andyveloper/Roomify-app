@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import Button from '@mui/material/Button';
 import { LoginContext } from '../auth/UserAuth';
 
 function Logout() {
@@ -23,8 +22,12 @@ function Logout() {
     return response;
   };
   return (
-    <button class="logout-button">
-     Logout
+    <button
+      onClick={handleClick}
+      type="button"
+      className="logout-button"
+    >
+      Logout
     </button>
   );
 }

@@ -13,9 +13,9 @@ const RemoveRoom = ({name, description, photo, id}) => {
   }
   return (
     <>
-        <div class="remove-room">
+        <div className="remove-room">
             <img src={photo} alt={name} className='remove-room__photo'/>
-            <div class="remove-room__information">
+            <div className="remove-room__information">
                 <p>{name}</p>
                 <p>{description}</p>
             </div>
