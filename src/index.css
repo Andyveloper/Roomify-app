@@ -146,6 +146,7 @@ code {
 .slick-prev::before,
 .slick-next::before {
   color: #56dc35 !important;
+  font-size: 4rem !important;
 }
 
 @media (max-width: 1600px) {
