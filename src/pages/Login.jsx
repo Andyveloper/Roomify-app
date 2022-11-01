@@ -85,6 +85,7 @@ export default function Login() {
   };
 
   return (
+    <div class="login-container">
     <ThemeProvider theme={theme}>
       <Grid container component="main" sx={{ height: '100vh' }}>
         <CssBaseline />
@@ -169,5 +170,6 @@ export default function Login() {
         </Grid>
       </Grid>
     </ThemeProvider>
+    </div>
   );
 }
