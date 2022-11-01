@@ -200,3 +200,7 @@ code {
   right:0;
   padding-right:1rem;
 }
+
+.MuiDrawer-paperAnchorDockedLeft {
+  overflow: hidden;
+}
