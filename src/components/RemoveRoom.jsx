@@ -14,18 +14,22 @@ const RemoveRoom = ({name, description, photo, id}) => {
   return (
     <>
         <div className="remove-room">
+          <div>
             <img src={photo} alt={name} className='remove-room__photo'/>
+          </div>
+          <div>
             <div className="remove-room__information">
-                <p>{name}</p>
+                <h3>{name}</h3>
                 <p>{description}</p>
             </div>
             <div>
-            <Button 
-            type="button"
-            variant="outlined"
-            onClick={()=>handleDeleteRoom(id)}>
-            Remove</Button> 
+              <Button 
+              type="button"
+              variant="outlined"
+              onClick={()=>handleDeleteRoom(id)}>
+              Remove</Button> 
             </div> 
+          </div>
         </div>
     </>
   );
