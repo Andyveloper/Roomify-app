@@ -11,10 +11,8 @@ const AddReservation = () => {
   const [info, setInfo] = useState({
     room: '',
     city: '',
-    date: ''
+    date: '',
   });
-
-  console.log(info.city)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -67,18 +65,14 @@ const AddReservation = () => {
           <label htmlFor="rooms">Choose a room</label>
           <br />
           <select className="input" name="room" id="rooms" onChange={getId} value={info.room} required>
-            {roomNames.map((name) => {
-              return (
-                <option
+            {roomNames.map((name) => (
+              <option
                 key={Math.round(Math.random() * 1000)}
                 value={name}
               >
                 {name}
               </option>
-              )
-            }
-              
-            )}
+            ))}
           </select>
         </div>
 
