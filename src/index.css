@@ -25,3 +25,209 @@ code {
     'Courier New',
     monospace;
 }
+
+.reservation {
+  background-image: url(./assets/img/reservesbg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: calc(100vh - 64px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-title {
+  color: aliceblue;
+  margin-bottom: 50px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 60%;
+}
+
+.input {
+  width: 100%;
+  border-radius: 3px;
+  border: none;
+  padding: 10px;
+}
+
+.submit {
+  width: 40%;
+  margin-top: 15px;
+  align-self: center;
+  border-radius: 5px;
+  border: none;
+}
+
+@media (min-width: 760px) {
+  .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 40%;
+  }
+}
+
+.menu_links {
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+.room-img {
+  width: 100%;
+  height: calc(100vh - 64px);
+  object-fit: cover;
+}
+
+@media (max-width: 1199px) {
+  .room-img {
+    height: 24rem;
+    width: 100vw;
+    object-fit: cover;
+  }
+}
+
+@media (min-width: 760px) {
+  .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 40%;
+  }
+}
+
+.slider-container {
+  width: 85%;
+  height: calc(100vh - 64px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.slider {
+  height: 60%;
+  width: 90%;
+}
+
+.room-photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.photo-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.room-card {
+  padding: 24px;
+}
+
+.slick-arrow {
+  width: 50%;
+}
+
+.btn-color {
+  background-color: #97bf0f !important;
+}
+
+.slick-prev::before,
+.slick-next::before {
+  color: #56dc35 !important;
+  font-size: 4rem !important;
+}
+
+@media (max-width: 1600px) {
+  .slider-container {
+    width: 80%;
+  }
+}
+
+@media (max-width: 1237px) {
+  .slider-container {
+    width: 75%;
+  }
+}
+
+@media (max-width: 1061px) {
+  .slider-container {
+    width: 70%;
+  }
+}
+
+@media (max-width: 1061px) {
+  .slider-container {
+    width: 70%;
+  }
+}
+
+@media (max-width: 768px) {
+  .slider-container {
+    width: 65%;
+  }
+}
+
+@media (max-width: 600px) {
+  .slider-container { width: 100%; }
+
+  .slick-prev::before,
+  .slick-next::before {
+    display: none;
+  }
+}
+
+.login-container {
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  position: fixed;
+  z-index: 10;
+}
+
+.logout-button {
+  background-color: transparent;
+  color: white;
+  position: absolute;
+  padding: 2rem;
+  margin-right: 1rem;
+  right: 0;
+  border: none;
+  font-size: 1.2rem;
+}
+
+.MuiDrawer-paperAnchorDockedLeft {
+  overflow: hidden;
+}
+
+#room-name {
+  text-align: center;
+  padding: 1rem;
+}
+
+#room-description {
+  text-align: center;
+}
+
+.MuiToolbar-gutters {
+  background-color: #5fd840;
+}
+
+#logo {
+  padding: 0.61rem 2rem;
+}
+
+.menu_link {
+  color: #5fd840;
+}

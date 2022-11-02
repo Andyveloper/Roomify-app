@@ -1,0 +1,22 @@
+.my-reservations {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+#reservation {
+  padding: 1rem;
+}
+
+.MuiCardMedia-root {
+  padding: 0.5rem;
+}
+
+#reservations-header {
+  padding: 2rem;
+}
+
+.MuiGrid-container {
+  justify-content: center;
+}
