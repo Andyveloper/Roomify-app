@@ -1,14 +1,21 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { displayRooms } from '../redux/actionCreator';
 
 const CarouselComp = () => {
   const rooms = useSelector((state) => state.rooms);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(displayRooms());
+  }, [dispatch]);
 
   const settings = {
     dots: true,
