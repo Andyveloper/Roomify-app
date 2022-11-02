@@ -8,7 +8,7 @@ const GET_ROOM_ID = 'property/housing/GET_ROOM_ID';
 
 const getRooms = async () => {
   const bearerToken = JSON.parse(localStorage.getItem('userInfo')).token;
-  const response = await fetch('http://roomifyap.herokuapp.com/rooms', {
+  const response = await fetch('https://roomifyap.herokuapp.com/rooms', {
     method: 'GET',
     headers: {
       Authorization: `${bearerToken}`,
@@ -21,7 +21,7 @@ const getReservations = async () => {
   const { rooms } = await getRooms();
   const firstId = rooms[0].id;
   const bearerToken = JSON.parse(localStorage.getItem('userInfo')).token;
-  const response = await fetch(`http://roomifyap.herokuapp.com/rooms/${firstId}/reservations`, {
+  const response = await fetch(`https://roomifyap.herokuapp.com/rooms/${firstId}/reservations`, {
     method: 'GET',
     headers: {
       Authorization: `${bearerToken}`,
@@ -33,7 +33,7 @@ const getReservations = async () => {
 
 const addRooms = async (room) => {
   const bearerToken = JSON.parse(localStorage.getItem('userInfo')).token;
-  const response = await fetch('http://roomifyap.herokuapp.com/rooms', {
+  const response = await fetch('https://roomifyap.herokuapp.com/rooms', {
     method: 'POST',
     headers: {
       Accept: 'application/json',
@@ -48,7 +48,7 @@ const addRooms = async (room) => {
 
 const removeRoom = async (id) => {
   const bearerToken = JSON.parse(localStorage.getItem('userInfo')).token;
-  await fetch(`http://roomifyap.herokuapp.com/rooms/${id}`, {
+  await fetch(`https://roomifyap.herokuapp.com/rooms/${id}`, {
     method: 'DELETE',
     headers: {
       Authorization: `${bearerToken}`,

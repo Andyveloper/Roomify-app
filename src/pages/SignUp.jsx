@@ -17,7 +17,7 @@ const Copyright = (props) => (
   // eslint-disable-next-line react/jsx-props-no-spreading
   <Typography variant="body2" color="text.secondary" align="center" {...props}>
     {'Copyright © '}
-    <Link color="inherit" href="http://roomifyap.herokuapp.com/">
+    <Link color="inherit" href="https://roomifyap.herokuapp.com/">
       Roomify
     </Link>
     {' '}
@@ -38,7 +38,7 @@ const SignUp = () => {
       },
     },
   );
-  const apiUrl = 'http://roomifyap.herokuapp.com/signup';
+  const apiUrl = 'https://roomifyap.herokuapp.com/signup';
   const handlerChange = async (e) => {
     await setUser({
       user: {

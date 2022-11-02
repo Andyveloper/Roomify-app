@@ -34,7 +34,7 @@ const AddReservation = () => {
 
   const todayDate = new Date().toISOString().slice(0, 10);
 
-  const url = 'http://roomifyap.herokuapp.com/rooms';
+  const url = 'https://roomifyap.herokuapp.com/rooms';
   const postReservation = async () => {
     const storageInfo = JSON.parse(localStorage.getItem('userInfo'));
     await fetch(`${url}/${roomId}/reservations`, {
