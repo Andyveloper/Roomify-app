@@ -21,7 +21,7 @@ const useStyles = {
   maxWidth: drawerWidth,
 };
 
-function ResponsiveDrawer(props) {
+const ResponsiveDrawer = (props) => {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const handleDrawerToggle = () => {
@@ -178,13 +178,9 @@ function ResponsiveDrawer(props) {
       </Box>
     </Box>
   );
-}
+};
 
 ResponsiveDrawer.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
   window: PropTypes.func.isRequired,
 };
 

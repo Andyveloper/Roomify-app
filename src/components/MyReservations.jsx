@@ -6,7 +6,7 @@ import {
 import { displayReservations } from '../redux/actionCreator';
 import './MyReservations.css';
 
-function MyReservations() {
+const MyReservations = () => {
   const dispatch = useDispatch();
   const reservations = useSelector((state) => state.reservations);
   const rooms = useSelector((state) => state.rooms);
@@ -15,9 +15,7 @@ function MyReservations() {
     dispatch(displayReservations());
   }, [dispatch]);
 
-  function container() {
-    return (<h1>No reservations available</h1>);
-  }
+  const container = () => (<h1>No reservations available</h1>);
   return (
     <>
       {!reservations.length ? (
@@ -91,6 +89,6 @@ function MyReservations() {
       )}
     </>
   );
-}
+};
 
 export default MyReservations;

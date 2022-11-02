@@ -17,24 +17,22 @@ import { Alert } from '@mui/material';
 
 import { LoginContext } from '../auth/UserAuth';
 
-function Copyright(props) {
-  return (
-    // eslint-disable-next-line react/jsx-props-no-spreading
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="http://roomifyap.herokuapp.com/">
-        Roomify
-      </Link>
-      {' '}
-      {new Date().getFullYear()}
-      .
-    </Typography>
-  );
-}
+const Copyright = (props) => (
+  // eslint-disable-next-line react/jsx-props-no-spreading
+  <Typography variant="body2" color="text.secondary" align="center" {...props}>
+    {'Copyright © '}
+    <Link color="inherit" href="http://roomifyap.herokuapp.com/">
+      Roomify
+    </Link>
+    {' '}
+    {new Date().getFullYear()}
+    .
+  </Typography>
+);
 
 const theme = createTheme();
 
-export default function Login() {
+const Login = () => {
   const [user, setUser] = useState({
     user: {
       email: '',
@@ -172,4 +170,6 @@ export default function Login() {
       </ThemeProvider>
     </div>
   );
-}
+};
+
+export default Login;

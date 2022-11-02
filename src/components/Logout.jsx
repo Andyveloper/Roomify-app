@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { LoginContext } from '../auth/UserAuth';
 
-function Logout() {
+const Logout = () => {
   // eslint-disable-next-line
   const { isAuth, setAuth } = useContext(LoginContext);
   const handleClick = async (e) => {
@@ -30,6 +30,6 @@ function Logout() {
       Logout
     </button>
   );
-}
+};
 
 export default Logout;

@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
-export default function ReserveRoom() {
+const ReserveRoom = () => {
   const roomId = useSelector((state) => state.roomId);
   const [info, setInfo] = useState({
     city: '',
@@ -69,4 +69,6 @@ export default function ReserveRoom() {
       </form>
     </div>
   );
-}
+};
+
+export default ReserveRoom;

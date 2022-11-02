@@ -5,9 +5,9 @@ import { useDispatch } from 'react-redux';
 import DetailsTable from './DetailsTable';
 import { getRoomId } from '../redux/actionCreator';
 
-function DetailsGrid({
+const DetailsGrid = ({
   name, description, photo, id,
-}) {
+}) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -76,7 +76,7 @@ function DetailsGrid({
 
     </Grid>
   );
-}
+};
 
 DetailsGrid.propTypes = {
   id: PropTypes.number.isRequired,

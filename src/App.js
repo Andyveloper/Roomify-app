@@ -18,7 +18,7 @@ import { displayRooms } from './redux/actionCreator';
 import DeleteRoom from './pages/DeleteRoom';
 import ReserveRoom from './components/ReserveRoom';
 
-function App() {
+const App = () => {
   const rooms = useSelector((state) => state.rooms);
 
   const dispatch = useDispatch();
@@ -87,6 +87,6 @@ function App() {
       </BrowserRouter>
     </>
   );
-}
+};
 
 export default App;
