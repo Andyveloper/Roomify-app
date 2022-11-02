@@ -7,7 +7,7 @@
 
 ### Mobile Version
 <p align="center">
-  <img width="460" height="500" src="./src/assets/img/mobile.png">
+  <img width="460" src="./src/assets/img/mobile.png">
 </p>
 
 ## Built With
