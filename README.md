@@ -1,65 +1,92 @@
-# React and Redux
+# Capstone Backend
 
-If you are not familiar with linters and GitHub Actions, read [root level README](../README.md).
+> This is the frontend for our capstone project.
 
-## Set-up GitHub Actions
+### Desktop Version
+> ![Desktop View](./src/assets/img/Desktop.png)
 
-This GitHub Action is going to run [ESLint](https://eslint.org/) and [Stylelint](https://stylelint.io/) to help you find style issues.
+### Mobile Version
+<p align="center">
+  <img width="460" height="300" src="./src/assets/img/mobile.png">
+</p>
 
-[Stylelint](https://stylelint.io/) is a linter for your stylesheets that helps you avoid errors and enforce conventions.
+## Built With
 
-[ESLint](https://eslint.org/) is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code, with the goal of making code more consistent and avoiding bugs.
+- React
+- Redux
+- Material UI
+- Slick Carousel
 
-Please do the following **steps in this order**:
 
-1. In the first commit of your feature branch create a `.github/workflows` folder and add a copy of [`.github/workflows/linters.yml`](.github/workflows/linters.yml) to that folder.
-    - **Remember** to use the file linked above
-    - **Remember** that `.github` folder starts with a dot.
-2. **Do not make any changes in config files - they represent style guidelines that you share with your team - which is a group of all Microverse students.**
-    - If you think that change is necessary - open a [Pull Request in this repository](../README.md#contributing) and let your code reviewer know about it.
-3. When you open your first pull request you should see the result of the GitHub Actions:
+## Getting Started
+To have a local copy of the code, follow the following steps:
 
-![gh actions checks](../assets/images/gh-actions-eslint-stylelint-checks.png)
+### Prerequisites
+- A web browser (like Google Chrome, Opera...).
+- A code editor (like Atom, VScode...).
 
-Click on the `Details` link to see the full output and the errors that need to be fixed:
+### Setup
+To setup the project locally: clone the repository using:
 
-![gh actions failing checks](../assets/images/gh-actions-html-css-failing-checks.png)
+```
+https://github.com/Andyveloper/Roomify-app.git
+```
 
-## Set-up linters in your local env
+### Install dependencies
+run : `npm install`
 
-### ESLint
+### Build the app
+run: `npm run build`
 
-1. Run 
-    ```
-    npm install --save-dev eslint@7.x eslint-config-airbnb@18.x eslint-plugin-import@2.x eslint-plugin-jsx-a11y@6.x eslint-plugin-react@7.x eslint-plugin-react-hooks@4.x @babel/eslint-parser@7.x @babel/core@7.x  @babel/plugin-syntax-jsx@7.x  @babel/preset-react@7.x @babel/preset-react@7.x
-    ```
-    *not sure how to use npm? Read [this](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).*
-2. Copy [.eslintrc.json](./.eslintrc.json) and [.babelrc](./.babelrc) to the root directory of your project.
-3. **Do not make any changes in config files - they represent style guidelines that you share with your team - which is a group of all Microverse students.**
-    - If you think that change is necessary - open a [Pull Request in this repository](../README.md#contributing) and let your code reviewer know about it.
-4. Run `npx eslint .` on the root of your directory of your project.
-5. Fix linter errors.
-6. **IMPORTANT NOTE**: feel free to research [auto-correct options for Stylelint](https://stylelint.io/user-guide/cli#autofixing-errors) if you get a flood of errors but keep in mind that correcting style errors manually will help you to make a habit of writing a clean code!
+### Run the app
+run: `npm start`
 
-### Stylelint
+## Live demo
+[Heroku app(Yet to be pulished)]()
 
-1. Run
+## Authors
 
-   ```
-   npm install --save-dev stylelint@13.x stylelint-scss@3.x stylelint-config-standard@21.x stylelint-csstree-validator@1.x
-   ```
+👤 **Mauricio Cantillo Moreno**
 
-   *not sure how to use npm? Read [this](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).*
+- GitHub: [@Andyveloper](https://github.com/Andyveloper)
+- Twitter: [@Andyveloper](https://twitter.com/MauroCantillo_)
+- LinkedIn: [@Andyveloper](https://www.linkedin.com/in/mauricio-cantillo-moreno/)
 
-2. Copy [.stylelintrc.json](./.stylelintrc.json) to the root directory of your project.
-3. **Do not make any changes in config files - they represent style guidelines that you share with your team - which is a group of all Microverse students.**
-   - If you think that change is necessary - open a [Pull Request in this repository](../README.md#contributing) and let your code reviewer know about it.
-4. Run `npx stylelint "**/*.{css,scss}"` on the root of your directory of your project.
-5. Fix linter errors.
-6. **IMPORTANT NOTE**: feel free to research [auto-correct options for Stylelint](https://stylelint.io/user-guide/cli#autofixing-errors) if you get a flood of errors but keep in mind that correcting style errors manually will help you to make a habit of writing a clean code!
+👤 **Andres Garzon Maldonado**
+- GitHub: [@andrgarzonmal](https://github.com/andrgarzonmal)
+- LinkedIn: [andres-garzon-maldonado](https://www.linkedin.com/in/andres-garzon-maldonado-951a2a180/)
 
-## Test/Deployment Actions
+👤 **Dafne Azzolina**
 
-Feel free to add your own deployment actions which can run your tests and deploy to Heroku.
+- GitHub: [@Daf98](https://github.com/Daf98)
+- Twitter: [@dafne_azzolina](https://twitter.com/dafne_azzolina)
+- LinkedIn: [dafne-azzolina](https://www.linkedin.com/in/dafne-azzolina/)
 
-Make sure that you do not modify the [`.github/workflows/linters.yml`](.github/workflows/linters.yml) but that you create a separe GitHub Action workflow file for that.
+👤 **Dino Quispe**
+
+- GitHub: [@dqarias](https://github.com/Daf98)
+- Twitter: [@DinoRonald7](https://twitter.com/DinoRonald7)
+- LinkedIn: [Dino Quispe](https://www.linkedin.com/in/dino-ronald-quispe-arias-8ba72174/)
+
+👤 **Owoeye Olaoluwa (Olamarx)**
+
+- GitHub: [@githubhandle](https://github.com/Olamarx)
+- Twitter: [@twitterhandle](https://twitter.com/Owoeye0laoluwa)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/olaoluwa-owoeye-617702162/)
+- Facebook: [Facebook](https://web.facebook.com/olaoluwa.owoeye.39)
+
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](../../issues/).
+
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## 📝 License
+
+This project is [MIT](./MIT.md) licensed.
