@@ -19,3 +19,9 @@
 .textfield__input {
   background-color: #fff;
 }
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 100%;
+  }
+}

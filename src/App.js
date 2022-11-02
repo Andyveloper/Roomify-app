@@ -50,7 +50,6 @@ function App() {
             position: 'relative',
             mt: { xs: '56px', sm: '64px' },
             padding: '0',
-            // overflow: 'hidden'
           }}
           disableGutters
         >
@@ -80,8 +79,6 @@ function App() {
               <Route exact path="/create-room" element={<CreateRoom />} />
               <Route exact path="/delete-room" element={<DeleteRoom />} />
             </Route>
-            {/* {rooms.map((room) => <Route key={room.name}
-            exact path={`/rooms/${room.id}/details`} element={<Details />} />)} */}
             <Route exact path="/reserve-room" element={<ReserveRoom />} />
             <Route exact path="/reserve" element={<AddReservation />} />
             <Route exact path="/my-reservations" element={<MyReservations />} />

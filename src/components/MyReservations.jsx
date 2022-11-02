@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  Container, CircularProgress, Card, CardMedia, Grid,
+  Card, CardMedia, Grid,
 } from '@mui/material';
 import { displayReservations } from '../redux/actionCreator';
 import './MyReservations.css';

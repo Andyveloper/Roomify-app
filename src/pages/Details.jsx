@@ -3,7 +3,9 @@ import React from 'react';
 import { PropTypes } from 'prop-types';
 import DetailsGrid from '../components/DetailsGrid';
 
-const DetailsPage = ({ id, name, description, photo }) => (
+const DetailsPage = ({
+  id, name, description, photo,
+}) => (
   <Container maxWidth={false} disableGutters>
     <DetailsGrid
       id={id}

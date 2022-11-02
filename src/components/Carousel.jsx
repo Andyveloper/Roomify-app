@@ -6,13 +6,10 @@ import { useSelector } from 'react-redux';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-// import { displayRooms } from '../redux/actionCreator';
+
 const CarouselComp = () => {
-// const dispatch = useDispatch();
   const rooms = useSelector((state) => state.rooms);
-  // useEffect(() => {
-  //   dispatch(displayRooms());
-  // }, [dispatch]);
+
   const settings = {
     dots: true,
     infinite: false,
@@ -37,7 +34,7 @@ const CarouselComp = () => {
           slidesToScroll: 1,
           initialSlide: 2,
           infinite: true,
-          dots: true
+          dots: true,
         },
       },
     ],

@@ -1,10 +1,9 @@
-import React, {useState} from 'react'
+/* eslint-disable jsx-a11y/label-has-associated-control */
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
-
 export default function ReserveRoom() {
-
-  const roomId = useSelector((state) => state.roomId)
+  const roomId = useSelector((state) => state.roomId);
   const [info, setInfo] = useState({
     city: '',
     date: '',

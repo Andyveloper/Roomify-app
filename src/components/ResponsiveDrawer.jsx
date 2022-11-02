@@ -18,7 +18,7 @@ import Logout from './Logout';
 
 const drawerWidth = 240;
 const useStyles = {
-  maxWidth: drawerWidth
+  maxWidth: drawerWidth,
 };
 
 function ResponsiveDrawer(props) {

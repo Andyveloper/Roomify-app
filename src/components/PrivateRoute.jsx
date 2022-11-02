@@ -9,6 +9,7 @@ const isAdmin = () => {
     }
     return false;
   }
+  return null;
 };
 
 const Admin = isAdmin();
