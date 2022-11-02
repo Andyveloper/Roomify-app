@@ -1,8 +1,10 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const AddReservation = () => {
+  const navigate = useNavigate();
   const rooms = useSelector((state) => state.rooms);
   const roomNames = rooms.map((room) => room.name);
   const [roomId, setRoomId] = useState(0);
@@ -46,7 +48,7 @@ const AddReservation = () => {
         Authorization: `${storageInfo.token}`,
       },
     });
-    window.location.href = '/my-reservations';
+    navigate('/my-reservations');
   };
 
   return (

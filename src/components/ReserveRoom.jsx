@@ -1,8 +1,10 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const ReserveRoom = () => {
+  const navigate = useNavigate();
   const roomId = useSelector((state) => state.roomId);
   const [info, setInfo] = useState({
     city: '',
@@ -39,7 +41,7 @@ const ReserveRoom = () => {
         Authorization: `${storageInfo.token}`,
       },
     });
-    window.location.href = '/my-reservations';
+    navigate('/my-reservations');
   };
 
   return (

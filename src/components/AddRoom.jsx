@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -8,6 +9,7 @@ import { addRoom } from '../redux/actionCreator';
 import './add_room.css';
 
 const AddRoom = () => {
+  const navigate = useNavigate();
   const dispatchRoom = useDispatch();
   const [roomArray, setRoomArray] = useState({
     name: '',
@@ -39,8 +41,8 @@ const AddRoom = () => {
         description: '',
         photo: '',
       },
-      alert('Your room has been created'),
     );
+    navigate('/');
   };
   const theme = createTheme({
     status: {
