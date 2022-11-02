@@ -9,9 +9,12 @@ const AddReservation = () => {
   const roomNames = rooms.map((room) => room.name);
   const [roomId, setRoomId] = useState(0);
   const [info, setInfo] = useState({
+    room: '',
     city: '',
-    date: '',
+    date: ''
   });
+
+  console.log(info.city)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,7 +22,12 @@ const AddReservation = () => {
 
   const getId = (e) => {
     const { id } = rooms.filter((r) => r.name === e.target.value)[0];
-
+    setInfo(
+      {
+        ...info,
+        [e.target.name]: e.target.value,
+      },
+    );
     setRoomId(id);
   };
 
@@ -58,15 +66,19 @@ const AddReservation = () => {
         <div>
           <label htmlFor="rooms">Choose a room</label>
           <br />
-          <select className="input" name="room" id="rooms" onChange={getId} required>
-            {roomNames.map((name) => (
-              <option
+          <select className="input" name="room" id="rooms" onChange={getId} value={info.room} required>
+            {roomNames.map((name) => {
+              return (
+                <option
                 key={Math.round(Math.random() * 1000)}
                 value={name}
               >
                 {name}
               </option>
-            ))}
+              )
+            }
+              
+            )}
           </select>
         </div>
 
