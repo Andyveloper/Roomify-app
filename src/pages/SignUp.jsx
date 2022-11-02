@@ -1,9 +1,10 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import Link from '@mui/material/Link';
+import MUILink from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
@@ -17,9 +18,9 @@ const Copyright = (props) => (
   // eslint-disable-next-line react/jsx-props-no-spreading
   <Typography variant="body2" color="text.secondary" align="center" {...props}>
     {'Copyright © '}
-    <Link color="inherit" href="https://roomifyap.herokuapp.com/">
+    <MUILink color="inherit" href="https://roomifyap.herokuapp.com/">
       Roomify
-    </Link>
+    </MUILink>
     {' '}
     {new Date().getFullYear()}
     .
@@ -162,8 +163,8 @@ const SignUp = () => {
               <Grid container>
 
                 <Grid item>
-                  <Link href="/" variant="body2">
-                    Already have an account? Login
+                  <Link to="/">
+                    <p>Already have an account? Login</p>
                   </Link>
                 </Grid>
               </Grid>
