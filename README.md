@@ -44,9 +44,12 @@ run: `npm start`
 ## Live demo
 [Netlify](https://roomify-app.netlify.app/)
 ## Kanban board
-[Link to Kanban board](https://github.com/andgarzonmal/capstone-project-back-end/projects/1)
-[Initial state of Kanban board](https://github.com/andgarzonmal/capstone-project-back-end/issues/23)
-We are 5 people.
+- [Link to Kanban board](https://github.com/andgarzonmal/capstone-project-back-end/projects/1)
+- [Initial state of Kanban board](https://github.com/andgarzonmal/capstone-project-back-end/issues/23)
+- We are 5 people.
+
+## Link to backend repository
+https://github.com/andgarzonmal/capstone-project-back-end/
 ## Authors
 
 👤 **Mauricio Cantillo Moreno**
@@ -85,7 +88,8 @@ Contributions, issues, and feature requests are welcome!
 
 Feel free to check the [issues page](../../issues/).
 
-
+## Credits
+[https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign](Original design by Murat Korkmaz)
 ## Show your support
 
 Give a ⭐️ if you like this project!
