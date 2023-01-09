@@ -22,7 +22,7 @@ const Copyright = (props) => (
   // eslint-disable-next-line react/jsx-props-no-spreading
   <Typography variant="body2" color="text.secondary" align="center" {...props}>
     {'Copyright © '}
-    <MUILink color="inherit" href="https://roomifyap.herokuapp.com/">
+    <MUILink color="inherit" href="https://roomifybe.fly.dev/">
       Roomify
     </MUILink>
     {' '}
@@ -54,7 +54,7 @@ const Login = () => {
   const { isAuth, setAuth } = useContext(LoginContext);
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const url = 'https://roomifyap.herokuapp.com/login';
+    const url = 'https://roomifybe.fly.dev/login';
     const response = await fetch(url, {
       method: 'POST',
       body: JSON.stringify({

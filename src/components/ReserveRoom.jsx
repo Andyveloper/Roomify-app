@@ -26,7 +26,7 @@ const ReserveRoom = () => {
 
   const todayDate = new Date().toISOString().slice(0, 10);
 
-  const url = 'https://roomifyap.herokuapp.com/rooms';
+  const url = 'https://roomifybe.fly.dev/rooms';
 
   const postReservation = async () => {
     const storageInfo = JSON.parse(localStorage.getItem('userInfo'));
